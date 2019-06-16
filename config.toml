@@ -1,0 +1,58 @@
+baseurl = "/"
+theme = "cocoa-eh-hugo-theme"
+builddrafts = true
+canonifyurls = true
+contentdir = "content"
+languageCode = "en-US"
+layoutdir = "layouts"
+publishdir = "public"
+author = "Joshua Feldman"
+title = "Joshua Feldman"
+disqusshortname = ""
+pluralizelisttitles = false
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[permalinks]
+blog = "blog/:slug/"
+
+[params]
+dateform = "Jan 2, 2006"
+dateformfull = "Mon Jan 2 2006 15:04:05 MST"
+description = "Example blog"
+copyright = "Copyright © 2019 Joshua Feldman"
+# copyrightUrl = "https://creativecommons.org/licenses/by-sa/4.0/"
+logofile = "img/me.png"
+faviconfile = "img/me.png"
+highlightjs = true
+progressively = true
+share = true
+# Share to googleplus, twitter, fb, linkedin by default
+# disable by setting share_on_<social network> = false
+# example: share_on_googleplus = false
+latestpostcount = 5
+github = "joshua-feldman"
+email = "joshuafeldman@hotmail.com"
+linkedin = "joshua-feldman-3b9a437b/"
+twitter = "JoshuaFeIdman"
+# facebook = "facebook_id"
+# instagram = "instagram_id"
+# itch_io = "itch_io_id"
+# social_banner = "img/banner.png"
+usesmallsummarycard = true
+posts_navigation = true
+# issoHost = "comments.domain.tld:1234"
+# githubRepo = "githubUsername/repositoryName/tree/master"
+small_banner_logo = false
+
+[params.colors]
+identifier = "#527fc1f"
+identifier_dark = "#1a3152"
+trivial = "#6a7a8b"
+foreground = "#181d2a"
+background = "#f9f9f9"
+background_dark = "#282a36"
+code = "#87a5d2"
+type = "#97d28b"
+special = "#ffcb8d"
+value = "#96c2d7"
+statement = "#ff8e91"
