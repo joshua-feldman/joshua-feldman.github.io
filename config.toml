@@ -10,7 +10,7 @@ author = "Joshua Feldman"
 title = "Joshua Feldman"
 disqusshortname = ""
 pluralizelisttitles = false
-disableKinds = ["taxonomy", "taxonomyTerm"]
+# disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [permalinks]
 blog = "blog/:slug/"
