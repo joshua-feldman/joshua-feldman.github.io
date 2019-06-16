@@ -8,7 +8,7 @@ tags: ["rstats", "beatles", "clustering"]
 
 With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as 'The White Album', represented the height of their eclecticism, as it spanned hard rock ('Back in the USSR'), ska ('Ob-La-Di, Ob-La-Da'), country ('Rocky Racoon') and experimental ('Revolution 9').
 
-![The Beatles in India](https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg "The Beatles in India")
+![The Beatles in India](https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg)
 The Beatles in India (Source: Rolling Stone)
 
 For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles' music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of **k-means clustering**, we can segment Beatles tracks according to 10 acoustic features that are used by Spotify and academic researchers to classify music, namely:
@@ -51,26 +51,27 @@ The Beatles discography on Spotify includes a lot of live albums and compilation
 beatles_core <- beatles %>% 
   filter(album_release_date < "1971-01-01")
 
+beatles_core <- beatles_core[-(111:117),]
+
 beatles_core_metrics <- beatles_core %>% 
   select(track_name, danceability, energy, loudness, speechiness,
-         acousticness, instrumentalness, liveness, valence,
-         tempo, duration_ms)
+         acousticness, instrumentalness, liveness, valence, tempo)
 ```
 
 ## Data analysis
 
 ### Elbow plot
 
-To help us decide how many clusters to choose, we can use the **elbow plot** technique. Unfortunately, the elbow plot exhibits a smooth curve that does not make it easy to decide how many clusters would be appropriate. Nevertheless, **seven seems an appropriate number**, since it sits somewhere in the middle of the elbow region of the plot.
+To help us decide how many clusters to choose, we can use the **elbow plot** technique. Unfortunately, the elbow plot exhibits a smooth curve that does not make it easy to decide how many clusters would be appropriate. Nevertheless, **eight seems an appropriate number**, since it sits somewhere in the middle of the elbow region of the plot and just before a temporary spike.
 
 ```{r}
 set.seed(1234)
 
-beatles_core_metrics[2:11] <- scale(beatles_core_metrics[2:11])
+beatles_core_metrics[2:10] <- scale(beatles_core_metrics[2:10])
 
 # Use map_dbl to run many models with varying value of k (centers)
 tot_withinss <- map_dbl(1:30,  function(k){
-  model <- kmeans(x = beatles_core_metrics[2:11], centers = k)
+  model <- kmeans(x = beatles_core_metrics[2:10], centers = k)
   model$tot.withinss
 })
 
@@ -84,7 +85,7 @@ elbow_df <- data.frame(
 ggplot(elbow_df, aes(x = k, y = tot_withinss)) +
   geom_line() +
   scale_x_continuous(breaks = 1:30) +
-  geom_vline(xintercept = 7, linetype = "dashed")
+  geom_vline(xintercept = 8, linetype = "dashed")
 ```
 
 ### K means
@@ -93,7 +94,7 @@ Now that we have decided on how many clusters to use, we can fit our k-means mod
 
 ```{r}
 set.seed(1234)
-beatles_k <- kmeans(beatles_core_metrics[2:11], centers = 7, nstart = 25)
+beatles_k <- kmeans(beatles_core_metrics[2:10], centers = 8, nstart = 25)
 ```
 
 We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the 10 dimensions that we clustered them on, we can only compare two attributes at a time - for example energy and valence. Although limited, this starts to give an impression of how the clusters differ from one another: 3, 4 and 5 score relatively high on energy and valence, while 2 and 7 score low
@@ -114,65 +115,86 @@ round(beatles_k$centers, 2)
 
 ## Summary of cluster characteristics
 
-### Cluster #1: Long meditations
+### Cluster #1: Melancholic meditations
 
-Many of the tracks in this cluster were penned by George Harrison, perhaps the most underappreciated Beatle. They are long and meditative, emphasising sensitivity and reflectiveness over attention-grabbing pace.
+Many of the tracks in this cluster were penned by George Harrison. They are sad and meditative, emphasising sensitivity and reflectiveness over attention-grabbing pace.
 
-* __Key features__: High duration, low danceability, low valence
-* __Number of songs__: 23
-* __Typical examples__: Here Comes The Sun; While My Guitar Gently Weeps; Something
+* __Key features__: Low valence
+* __Number of songs__: 26 (14% of total)
+* __Typical examples__: Something; Here Comes The Sun; Dear Prudence
 
-### Cluster #2: Ballads and folk
+<iframe src="https://open.spotify.com/embed/playlist/0nqivOUq6NxvnpW0o05bsO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-This cluster incorporates many of McCartney's most loved ballads and acoustic numbers. It is primarily characterised by a relatively low energy.
+### Cluster #2: Songs for the stage
 
-* __Key features__: Low energy, high acousticness, low loudness
-* __Number of songs__: 34
-* __Typical examples__: Yesterday; Blackbird; In My Life
+With high liveness, Cluster #1 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.
 
-### Cluster #3: Early favourites
+* __Key features__: High liveness
+* __Number of songs__: 13 (7% of total)
+* __Typical examples__: Sgt. Pepper's Lonely Hearts Club Band; Get Back; One After 909
 
-Cluster #3 picks up early Beatles classics, which are characterised by their tempo and high energy.
+<iframe src="https://open.spotify.com/embed/playlist/34rLPLP6WDW6qp9wXg2nLt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-* __Key features__: High tempo, low danceability, high energy
-* __Number of songs__: 21
-* __Typical examples__: I Saw Her Standing There; Love Me Do; Can't Buy Me Love
+### Cluster #3: Instrumentals
 
-### Cluster #4: Playful rock pop
+Cluster #3 comprises the instrumental portion of the Beatles' portfolio. Most of the Yellow Submarine album - the soundtrack to the animated film of the same name - is sorted into this cluster.
 
-Cluster #4 represents The Beatles at their most playful: happy, energetic songs that make you want to tap your foot. This is the most populous cluster, representing 40%+ of their discography.
+* __Key features__: High instrumentalness, low loudness, low valence, low energy, high acousticness
+* __Number of songs__: 9 (5% of total)
+* __Typical examples__: Flying; Sea of Monsters; Sea of Holes
 
-* __Key features__: High valence, high energy, high danceability
-* __Number of songs__: 77
-* __Typical examples__: Twist and Shout; Help!; Ob-La-Di, Ob-La-Da
+<iframe src="https://open.spotify.com/embed/playlist/2mbNHUnOeAhUIO5C0TsL4z" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #5: Songs for the stage
+### Cluster #4: Danceable pop rock
 
-With high liveness, Cluster #5 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.
+Cluster #4 is fairly diverse and the second most populous cluster after Cluster #6. It features songs from across The Beatles' portfolio.
 
-* __Key features__: High liveness, high energy, high loudness
-* __Number of songs__: 17
-* __Typical examples__: Get Back; One After 909; Sgt. Pepper's Lonely Hearts Club Band
+* __Key features__: High acousticness, high danceability
+* __Number of songs__: 35 (19% of total)
+* __Typical examples__: Eleanor Rigby; Michelle; Girl
 
-![Get Back](https://jeffreypepperrodgers.com/wp-content/uploads/2017/09/Beatles-rooftop-1969-1-e1506539070271-1024x477.jpg "Get Back")
-The Beatles performing 'Get Back' on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)
+<iframe src="https://open.spotify.com/embed/playlist/6KQXrVk9uuyTbXpc1yvs8k" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #6: Lyrical vignettes
+### Cluster #5: Lyrical vignettes
 
 This small cluster picks up some of The Beatles' more lyrically dense tracks, primarily characterised by their descriptiveness and emphasis on the spoken word.
 
-* __Key features__: High speechiness, low duration, high liveness
-* __Number of songs__: 7
-* __Typical examples__: Strawberry Fields Forever; Polythene Pam; I'm So Tired
+* __Key features__: High speechiness
+* __Number of songs__: 5 (3% of total)
+* __Typical examples__: Strawberry Fields Forever; I'm So Tired; Polythene Pam
 
-### Cluster #7: Instrumentals
+<iframe src="https://open.spotify.com/embed/playlist/2wNcH3RJkF5SVjzhSCqt7o" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-In contrast to Cluster #6, Cluster #7 comprises the instrumental portion of the Beatles' portfolio. Most of the Yellow Submarine album - the soundtrack to the animated film of the same name - is sorted into this cluster.
+### Cluster #6: Typical Beatles
 
-* __Key features__: High instrumentalness, low loudness, low valence
-* __Number of songs__: 11
-* __Typical examples__: Sea Of Holes; Flying; Sea Of Monsters
+Cluster #6 represents the closest thing The Beatles have to a uniform sound. It has no distinguishing features, with average loadings for all nine of the acoustic features. Fittingly, it is the most populous cluster, representing 30% of The Beatles' discography.
+
+* __Key features__: None
+* __Number of songs__: 54 (30% of total)
+* __Typical examples__: Please Please Me; Eight Days A Week; Help!
+
+<iframe src="https://open.spotify.com/embed/playlist/1gDrrB87QGiLWh7CXR7ZxB" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+### Cluster #7: Lively pop songs
+
+Cluster #7 picks up early Beatles classics, which are characterised by their tempo and high energy.
+
+* __Key features__: High energy, high tempo
+* __Number of songs__: 29 (16% of total)
+* __Typical examples__: Love Me Do; Twist and Shout; Can't Buy Me Love
+
+<iframe src="https://open.spotify.com/embed/playlist/0aXqAwlJsRIYb0qxcd1BEO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+### Cluster #8: Calm ballads
+
+This cluster incorporates many of McCartney's most loved ballads and acoustic numbers. It is primarily characterised by a relatively low energy.
+
+* __Key features__: Low energy, high acousticness, low loudness, low valence
+* __Number of songs__: 12 (7% of total)
+* __Typical examples__: Blackbird; Yesterday; The Long And Winding Road
+
+<iframe src="https://open.spotify.com/embed/playlist/7neO2rypXnsxW0vLWQUjya" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Concluding remarks
 
-K-means clustering has done a decent job of organising The Beatles' overwhelmingly diverse discography into a set of coherent segments. The set of 10 audio features clearly describe the tracks with some accuracy, allowing the algorithm to make sensible groupings. There remain some question marks - I am still scratching my head as to why early songs like 'Love Me Do' rank low on danceability - but overall the method has proved an effective means of studying one of the most eclectic rock portfolios in music history.
+K-means clustering has done a decent job of organising The Beatles' overwhelmingly diverse discography into a set of coherent segments. The set of nine audio features clearly describe the tracks with some accuracy, allowing the algorithm to make sensible groupings. There remain some question marks - I am still scratching my head as to why early songs like 'Love Me Do' rank low on danceability - but overall the method has proved an effective means of studying one of the most eclectic rock portfolios in music history.
