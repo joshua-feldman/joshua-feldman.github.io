@@ -10,11 +10,10 @@ tags: ["rstats", "beatles", "clustering"]
 
 <p>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</p>
 <p><img src="https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg" alt="The Beatles in India" /> The Beatles in India (Source: Rolling Stone)</p>
-<p>For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles’ music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of <strong>k-means clustering</strong>, we can segment Beatles tracks according to 10 acoustic features that are used by Spotify and academic researchers to classify music, namely:</p>
+<p>For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles’ music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of <strong>k-means clustering</strong>, we can segment Beatles tracks according to nine acoustic features that are used by Spotify and academic researchers to classify music, namely:</p>
 <ul>
 <li><strong>Acousticness</strong>: Probability that a track was produced using acoustic instruments</li>
 <li><strong>Danceability</strong>: Based on tempo, rhythm stability, beat strength, etc</li>
-<li><strong>Duration</strong>: Length of a track</li>
 <li><strong>Energy</strong>: A measure of frenetic activity</li>
 <li><strong>Instrumentalness</strong>: Probability that a track was performed using only instrumental sounds</li>
 <li><strong>Liveness</strong>: Probability that a track was performed in front a live audience</li>
@@ -52,11 +51,14 @@ head(beatles)</code></pre>
 ## #   duration_ms &lt;dbl&gt;, time_signature &lt;dbl&gt;, key_mode &lt;chr&gt;,
 ## #   track_popularity &lt;int&gt;</code></pre>
 <p>The Beatles discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an <code>album_release_date</code> prior to 1971. We can then select our columns of interest and save them in a separate data frame.</p>
-<pre class="r"><code>beatles_core &lt;- beatles %&gt;% 
+<pre class="r"><code># Filter for albums released before 1971
+beatles_core &lt;- beatles %&gt;% 
   filter(album_release_date &lt; &quot;1971-01-01&quot;)
 
+# Filter out bonus tracks on Sgt Pepper&#39;s album
 beatles_core &lt;- beatles_core[-(111:117),]
 
+# Select track name and acoustic features
 beatles_core_metrics &lt;- beatles_core %&gt;% 
   select(track_name, danceability, energy, loudness, speechiness,
          acousticness, instrumentalness, liveness, valence, tempo)</code></pre>
@@ -125,25 +127,25 @@ beatles_core_metrics %&gt;%
 </div>
 <div id="summary-of-cluster-characteristics" class="section level2">
 <h2>Summary of cluster characteristics</h2>
-<div id="cluster-1-melancholic-meditations" class="section level3">
-<h3>Cluster #1: Melancholic meditations</h3>
-<p>Many of the tracks in this cluster were penned by George Harrison. They are sad and meditative, emphasising sensitivity and reflectiveness over attention-grabbing pace.</p>
+<div id="cluster-1-meditations" class="section level3">
+<h3>Cluster #1: Meditations</h3>
+<p>Several of the tracks in this cluster were penned by George Harrison. They are often sad and meditative, emphasising sensitivity and reflectiveness over pace.</p>
 <ul>
 <li><strong>Key features</strong>: Low valence</li>
 <li><strong>Number of songs</strong>: 26 (14% of total)</li>
-<li><strong>Typical examples</strong>: Something; Here Comes The Sun; Dear Prudence</li>
+<li><strong>Famous examples</strong>: Here Comes The Sun; Let It Be; Come Together</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/0nqivOUq6NxvnpW0o05bsO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-2-songs-for-the-stage" class="section level3">
-<h3>Cluster #2: Songs for the stage</h3>
+<div id="cluster-2-performances" class="section level3">
+<h3>Cluster #2: Performances</h3>
 <p><img src="https://jeffreypepperrodgers.com/wp-content/uploads/2017/09/Beatles-rooftop-1969-1-e1506539070271-1024x477.jpg" alt="Get Back" /> The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)</p>
-<p>With high liveness, Cluster #1 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.</p>
+<p>With high liveness, Cluster #2 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.</p>
 <ul>
 <li><strong>Key features</strong>: High liveness</li>
 <li><strong>Number of songs</strong>: 13 (7% of total)</li>
-<li><strong>Typical examples</strong>: Sgt. Pepper’s Lonely Hearts Club Band; Get Back; One After 909</li>
+<li><strong>Famous examples</strong>: I Am The Walrus; Get Back; She Said She Said</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/34rLPLP6WDW6qp9wXg2nLt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
@@ -154,62 +156,62 @@ beatles_core_metrics %&gt;%
 <ul>
 <li><strong>Key features</strong>: High instrumentalness, low loudness, low valence, low energy, high acousticness</li>
 <li><strong>Number of songs</strong>: 9 (5% of total)</li>
-<li><strong>Typical examples</strong>: Flying; Sea of Monsters; Sea of Holes</li>
+<li><strong>Famous examples</strong>: Sun King; Mother Nature’s Son; Flying</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/2mbNHUnOeAhUIO5C0TsL4z" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-4-danceable-pop-rock" class="section level3">
-<h3>Cluster #4: Danceable pop rock</h3>
-<p>Cluster #4 is fairly diverse and the second most populous cluster after Cluster #6. It features songs from across The Beatles’ portfolio.</p>
+<div id="cluster-4-ballads" class="section level3">
+<h3>Cluster #4: Ballads</h3>
+<p>Cluster #4 is skewed towards The Beatles’ earlier work but also the second most populous cluster after Cluster #6. Its songs have an acoustic rather than electric bent.</p>
 <ul>
 <li><strong>Key features</strong>: High acousticness, high danceability</li>
 <li><strong>Number of songs</strong>: 35 (19% of total)</li>
-<li><strong>Typical examples</strong>: Eleanor Rigby; Michelle; Girl</li>
+<li><strong>Famous examples</strong>: In My Life; Eleanor Rigby; And I Love Her</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/6KQXrVk9uuyTbXpc1yvs8k" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-5-lyrical-vignettes" class="section level3">
-<h3>Cluster #5: Lyrical vignettes</h3>
+<div id="cluster-5-vignettes" class="section level3">
+<h3>Cluster #5: Vignettes</h3>
 <p>This small cluster picks up some of The Beatles’ more lyrically dense tracks, primarily characterised by their descriptiveness and emphasis on the spoken word.</p>
 <ul>
 <li><strong>Key features</strong>: High speechiness</li>
 <li><strong>Number of songs</strong>: 5 (3% of total)</li>
-<li><strong>Typical examples</strong>: Strawberry Fields Forever; I’m So Tired; Polythene Pam</li>
+<li><strong>Famous examples</strong>: Strawberry Fields Forever; I’m So Tired; Polythene Pam</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/2wNcH3RJkF5SVjzhSCqt7o" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-6-typical-beatles" class="section level3">
-<h3>Cluster #6: Typical Beatles</h3>
+<div id="cluster-6-middlers" class="section level3">
+<h3>Cluster #6: Middlers</h3>
 <p>Cluster #6 represents the closest thing The Beatles have to a uniform sound. It has no distinguishing features, with average loadings for all nine of the acoustic features. Fittingly, it is the most populous cluster, representing 30% of The Beatles’ discography.</p>
 <ul>
 <li><strong>Key features</strong>: None</li>
 <li><strong>Number of songs</strong>: 54 (30% of total)</li>
-<li><strong>Typical examples</strong>: Please Please Me; Eight Days A Week; Help!</li>
+<li><strong>Famous examples</strong>: Help!; While My Guitar Gently Weeps; Penny Lane</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/1gDrrB87QGiLWh7CXR7ZxB" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-7-lively-pop-songs" class="section level3">
-<h3>Cluster #7: Lively pop songs</h3>
+<div id="cluster-7-rockers" class="section level3">
+<h3>Cluster #7: Rockers</h3>
 <p>Cluster #7 picks up early Beatles classics, which are characterised by their tempo and high energy.</p>
 <ul>
 <li><strong>Key features</strong>: High energy, high tempo</li>
 <li><strong>Number of songs</strong>: 29 (16% of total)</li>
-<li><strong>Typical examples</strong>: Love Me Do; Twist and Shout; Can’t Buy Me Love</li>
+<li><strong>Famous examples</strong>: Twist And Shout; I Saw Her Standing There; A Hard Day’s Night</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/0aXqAwlJsRIYb0qxcd1BEO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
 </div>
-<div id="cluster-8-calm-ballads" class="section level3">
-<h3>Cluster #8: Calm ballads</h3>
+<div id="cluster-8-lullabies" class="section level3">
+<h3>Cluster #8: Lullabies</h3>
 <p>This cluster incorporates many of McCartney’s most loved ballads and acoustic numbers. It is primarily characterised by a relatively low energy.</p>
 <ul>
 <li><strong>Key features</strong>: Low energy, high acousticness, low loudness, low valence</li>
 <li><strong>Number of songs</strong>: 12 (7% of total)</li>
-<li><strong>Typical examples</strong>: Blackbird; Yesterday; The Long And Winding Road</li>
+<li><strong>Famous examples</strong>: Yesterday; Blackbird; Golden Slumbers</li>
 </ul>
 <iframe src="https://open.spotify.com/embed/playlist/7neO2rypXnsxW0vLWQUjya" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>
