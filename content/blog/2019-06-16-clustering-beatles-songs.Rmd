@@ -11,11 +11,10 @@ With 13 studio albums and a career that spanned more than a decade, The Beatles 
 ![The Beatles in India](https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg)
 The Beatles in India (Source: Rolling Stone)
 
-For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles' music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of **k-means clustering**, we can segment Beatles tracks according to 10 acoustic features that are used by Spotify and academic researchers to classify music, namely:
+For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles' music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of **k-means clustering**, we can segment Beatles tracks according to nine acoustic features that are used by Spotify and academic researchers to classify music, namely:
 
 * __Acousticness__: Probability that a track was produced using acoustic instruments
 * __Danceability__: Based on tempo, rhythm stability, beat strength, etc
-* __Duration__: Length of a track
 * __Energy__: A measure of frenetic activity
 * __Instrumentalness__: Probability that a track was performed using only instrumental sounds
 * __Liveness__: Probability that a track was performed in front a live audience
@@ -48,11 +47,14 @@ head(beatles)
 The Beatles discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an `album_release_date` prior to 1971. We can then select our columns of interest and save them in a separate data frame.
 
 ```{r}
+# Filter for albums released before 1971
 beatles_core <- beatles %>% 
   filter(album_release_date < "1971-01-01")
 
+# Filter out bonus tracks on Sgt Pepper's album
 beatles_core <- beatles_core[-(111:117),]
 
+# Select track name and acoustic features
 beatles_core_metrics <- beatles_core %>% 
   select(track_name, danceability, energy, loudness, speechiness,
          acousticness, instrumentalness, liveness, valence, tempo)
@@ -115,26 +117,26 @@ round(beatles_k$centers, 2)
 
 ## Summary of cluster characteristics
 
-### Cluster #1: Melancholic meditations
+### Cluster #1: Meditations
 
-Many of the tracks in this cluster were penned by George Harrison. They are sad and meditative, emphasising sensitivity and reflectiveness over attention-grabbing pace.
+Several of the tracks in this cluster were penned by George Harrison. They are often sad and meditative, emphasising sensitivity and reflectiveness over pace.
 
 * __Key features__: Low valence
 * __Number of songs__: 26 (14% of total)
-* __Typical examples__: Something; Here Comes The Sun; Dear Prudence
+* __Famous examples__: Here Comes The Sun; Let It Be; Come Together
 
 <iframe src="https://open.spotify.com/embed/playlist/0nqivOUq6NxvnpW0o05bsO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #2: Songs for the stage
+### Cluster #2: Performances
 
 ![Get Back](https://jeffreypepperrodgers.com/wp-content/uploads/2017/09/Beatles-rooftop-1969-1-e1506539070271-1024x477.jpg)
 The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)
 
-With high liveness, Cluster #1 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.
+With high liveness, Cluster #2 tracks give the impression that they were recorded in front of a live audience. They are loud, energetic and written with the stage in mind.
 
 * __Key features__: High liveness
 * __Number of songs__: 13 (7% of total)
-* __Typical examples__: Sgt. Pepper's Lonely Hearts Club Band; Get Back; One After 909
+* __Famous examples__: I Am The Walrus; Get Back; She Said She Said
 
 <iframe src="https://open.spotify.com/embed/playlist/34rLPLP6WDW6qp9wXg2nLt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -144,57 +146,57 @@ Cluster #3 comprises the instrumental portion of the Beatles' portfolio. Most of
 
 * __Key features__: High instrumentalness, low loudness, low valence, low energy, high acousticness
 * __Number of songs__: 9 (5% of total)
-* __Typical examples__: Flying; Sea of Monsters; Sea of Holes
+* __Famous examples__: Sun King; Mother Nature's Son; Flying
 
 <iframe src="https://open.spotify.com/embed/playlist/2mbNHUnOeAhUIO5C0TsL4z" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #4: Danceable pop rock
+### Cluster #4: Ballads
 
-Cluster #4 is fairly diverse and the second most populous cluster after Cluster #6. It features songs from across The Beatles' portfolio.
+Cluster #4 is skewed towards The Beatles' earlier work but also the second most populous cluster after Cluster #6. Its songs have an acoustic rather than electric bent.
 
 * __Key features__: High acousticness, high danceability
 * __Number of songs__: 35 (19% of total)
-* __Typical examples__: Eleanor Rigby; Michelle; Girl
+* __Famous examples__: In My Life; Eleanor Rigby; And I Love Her
 
 <iframe src="https://open.spotify.com/embed/playlist/6KQXrVk9uuyTbXpc1yvs8k" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #5: Lyrical vignettes
+### Cluster #5: Vignettes
 
 This small cluster picks up some of The Beatles' more lyrically dense tracks, primarily characterised by their descriptiveness and emphasis on the spoken word.
 
 * __Key features__: High speechiness
 * __Number of songs__: 5 (3% of total)
-* __Typical examples__: Strawberry Fields Forever; I'm So Tired; Polythene Pam
+* __Famous examples__: Strawberry Fields Forever; I'm So Tired; Polythene Pam
 
 <iframe src="https://open.spotify.com/embed/playlist/2wNcH3RJkF5SVjzhSCqt7o" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #6: Typical Beatles
+### Cluster #6: Middlers
 
 Cluster #6 represents the closest thing The Beatles have to a uniform sound. It has no distinguishing features, with average loadings for all nine of the acoustic features. Fittingly, it is the most populous cluster, representing 30% of The Beatles' discography.
 
 * __Key features__: None
 * __Number of songs__: 54 (30% of total)
-* __Typical examples__: Please Please Me; Eight Days A Week; Help!
+* __Famous examples__: Help!; While My Guitar Gently Weeps; Penny Lane
 
 <iframe src="https://open.spotify.com/embed/playlist/1gDrrB87QGiLWh7CXR7ZxB" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #7: Lively pop songs
+### Cluster #7: Rockers
 
 Cluster #7 picks up early Beatles classics, which are characterised by their tempo and high energy.
 
 * __Key features__: High energy, high tempo
 * __Number of songs__: 29 (16% of total)
-* __Typical examples__: Love Me Do; Twist and Shout; Can't Buy Me Love
+* __Famous examples__: Twist And Shout; I Saw Her Standing There; A Hard Day's Night
 
 <iframe src="https://open.spotify.com/embed/playlist/0aXqAwlJsRIYb0qxcd1BEO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-### Cluster #8: Calm ballads
+### Cluster #8: Lullabies
 
 This cluster incorporates many of McCartney's most loved ballads and acoustic numbers. It is primarily characterised by a relatively low energy.
 
 * __Key features__: Low energy, high acousticness, low loudness, low valence
 * __Number of songs__: 12 (7% of total)
-* __Typical examples__: Blackbird; Yesterday; The Long And Winding Road
+* __Famous examples__: Yesterday; Blackbird; Golden Slumbers
 
 <iframe src="https://open.spotify.com/embed/playlist/7neO2rypXnsxW0vLWQUjya" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
