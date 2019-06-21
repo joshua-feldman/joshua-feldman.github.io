@@ -143,13 +143,17 @@ The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile 
 
 With high liveness, Cluster #1 tracks give the impression that they were recorded in front of a live audience. They are energetic and written with the stage in mind.
 
+<iframe src="https://open.spotify.com/embed/playlist/0YKd45batEYGL4DkOIVi3p" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ### Cluster #2: Ballads
 
-Songs in Cluster #2 – which I've loosely called 'Ballads' – often tell folkish tales about love and relationships. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
+Songs in Cluster #2 – which I've loosely called 'Ballads' – come under the broad umbrella of 'folk rock', often telling wistful tales about colourful characters or romantic interests. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
 
 * __Key features__: High acousticness, high danceability
 * __Number of songs__: 27 (15% of total)
 * __Examples__: In My Life; Eleanor Rigby; Michelle
+
+<iframe src="https://open.spotify.com/embed/playlist/6XybrKCiDST38VuLkRyoaf" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ### Cluster #3: Interludes
 
@@ -159,6 +163,8 @@ The three tracks in Cluster #3 are statistical anomalies, perhaps too short for 
 * __Number of songs__: 3 (2% of total)
 * __Examples__: Birthday; Hey Bulldog; Words Of Love
 
+<iframe src="https://open.spotify.com/embed/playlist/4nssWea9AT0BwZd89RhQAL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ### Cluster #4: Instrumentals
 
 Cluster #4 comprises the instrumental portion of The Beatles' portfolio. Most of the Yellow Submarine album – the soundtrack to the animated film of the same name – is sorted into this cluster.
@@ -166,6 +172,8 @@ Cluster #4 comprises the instrumental portion of The Beatles' portfolio. Most of
 * __Key features__: High instrumentalness, low loudness, low valence
 * __Number of songs__: 9 (5% of total)
 * __Examples__: Pepperland; Sea Of Holes; Sea Of Monsters
+
+<iframe src="https://open.spotify.com/embed/playlist/6ZaGmFoJwmvqg6QPRAeolm" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ### Cluster #5: Rockers
 
@@ -175,13 +183,17 @@ Cluster #5 is classic rock and roll, with high energy, high tempo and an upbeat 
 * __Number of songs__: 27 (15% of total)
 * __Examples__: Twist And Shout; I Saw Her Standing There; Love Me Do
 
+<iframe src="https://open.spotify.com/embed/playlist/25PYGtYZvMcG7dgE7obpTo" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ### Cluster #6: Meditations
 
-Several of the tracks in this cluster were penned by George Harrison and show an Eastern or psychedelic influence ('Tomorrow Never Knows', 'Blue Jay Way'). They are often sad and meditative, whether contemplating love and devotion ('Something') or the loneliness of a spiritual hermit ('Dear Prudence'). There is a skew towards The Beatles' later work, with no tracks from the first four albums. 
+Several of the tracks in this cluster were penned by George Harrison and show an Eastern or psychedelic influence ('Tomorrow Never Knows', 'Blue Jay Way'). They are often sad and meditative, whether contemplating love and devotion ('Something') or the loneliness of a spiritual hermit ('Dear Prudence'). There is a skew towards The Beatles' later work, with no tracks from the first four albums.
 
 * __Key features__: Low valence
 * __Number of songs__: 25 (14% of total)
 * __Examples__: Here Comes The Sun; Something; Dear Prudence
+
+<iframe src="https://open.spotify.com/embed/playlist/5gSP1ft4yJIOF8K4UstX5s" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ### Cluster #7: Slowcoaches
 
@@ -191,6 +203,8 @@ Cluster #7 is distinguished by its slow tempo, with languorous songs including '
 * __Number of songs__: 25 (14% of total)
 * __Examples__: All You Need Is Love; Yellow Submarine; Hello, Goodbye
 
+<iframe src="https://open.spotify.com/embed/playlist/1NlF3QYdxGtTVPtGBVCaks" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ### Cluster #8: Vignettes
 
 This small cluster picks up some of The Beatles' more lyrically dense tracks, primarily characterised by their descriptiveness and emphasis on the spoken word.
@@ -198,6 +212,8 @@ This small cluster picks up some of The Beatles' more lyrically dense tracks, pr
 * __Key features__: High speechiness
 * __Number of songs__: 25 (3% of total)
 * __Examples__: Strawberry Fields Forever; Polythene Pam; Maggie Mae
+
+<iframe src="https://open.spotify.com/embed/playlist/3wmFgSzjgbfIGMDXnu1327" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ### Cluster #9: Middlers
 
@@ -207,6 +223,8 @@ Cluster #9 sits somewhere between the hard rock sound of Cluster #5 and the folk
 * __Number of songs__: 38 (21% of total)
 * __Examples__: Help!; A Hard Day's Night; Eight Days A Week
 
+<iframe src="https://open.spotify.com/embed/playlist/5UgqYPnqjnqfZcsULhIhkM" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
 ### Cluster #10: Lullabies
 
 Cluster #10 is a collection of sleepy gems from The Beatles catalogue and works well as a standalone playlist (aside from the intrusion of 'Her Majesty' towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.
@@ -214,6 +232,8 @@ Cluster #10 is a collection of sleepy gems from The Beatles catalogue and works 
 * __Key features__: Low energy, high acousticness, low loudness
 * __Number of songs__: 12 (7% of total)
 * __Examples__: Yesterday; Blackbird; Golden Slumbers
+
+<iframe src="https://open.spotify.com/embed/playlist/7neO2rypXnsxW0vLWQUjya" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 ## Concluding remarks
 
