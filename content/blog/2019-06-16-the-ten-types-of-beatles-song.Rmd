@@ -146,7 +146,7 @@ With high liveness, Cluster #1 tracks give the impression that they were recorde
 
 ### Cluster #2: Ballads
 
-Songs in Cluster #2 – which I've loosely called 'Ballads' – come under the broad umbrella of 'folk rock', often telling wistful tales about colourful characters or romantic interests. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
+Songs in Cluster #2 – which I've loosely called 'Ballads' – come under the broad umbrella of folk rock, often telling wistful tales about colourful characters or romantic interests. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
 
 * __Key features__: High acousticness, high danceability
 * __Number of songs__: 27 (15% of total)
