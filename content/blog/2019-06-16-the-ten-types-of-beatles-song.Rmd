@@ -134,7 +134,6 @@ round(beatles_k$centers, 2)
 ### Cluster #1: Performances
 
 ![Get Back](https://jeffreypepperrodgers.com/wp-content/uploads/2017/09/Beatles-rooftop-1969-1-e1506539070271-1024x477.jpg)
-
 The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)
 
 * __Key features__: High liveness
