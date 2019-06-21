@@ -1250,7 +1250,7 @@ ggplot(elbow_df, aes(x = k, y = tot_withinss)) +
 <p>Now that we have decided on how many clusters to use, we can fit our k-means model by using the <code>kmeans</code> function in the built-in <code>stats</code> package.</p>
 <pre class="r"><code>set.seed(1234)
 beatles_k &lt;- kmeans(beatles_core_metrics[2:10], centers = 8, nstart = 25)</code></pre>
-<p>We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the 10 dimensions that we clustered them on, we can only compare two attributes at a time - for example energy and valence. Although limited, this starts to give an impression of how the clusters differ from one another: 3, 4 and 5 score relatively high on energy and valence, while 2 and 7 score low</p>
+<p>We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the nine dimensions that we clustered them on, we can only compare two attributes at a time - for example energy and valence.</p>
 <pre class="r"><code>beatles_core_metrics$cluster &lt;- beatles_k$cluster
 
 beatles_core_metrics %&gt;% 
@@ -1283,7 +1283,7 @@ beatles_core_metrics %&gt;%
 <h2>Summary of cluster characteristics</h2>
 <div id="cluster-1-meditations" class="section level3">
 <h3>Cluster #1: Meditations</h3>
-<p>Several of the tracks in this cluster were penned by George Harrison. They are often sad and meditative, emphasising sensitivity and reflectiveness over pace.</p>
+<p>Several of the tracks in this cluster were penned by George Harrison. They are often sad and meditative, whether contemplating love and devotion (‘Something’) or the loneliness of a spiritual hermit (‘Dear Prudence’). There is a skew towards The Beatles’ later work, with 7 of the 26 tracks from Abbey Road.</p>
 <ul>
 <li><strong>Key features</strong>: Low valence</li>
 <li><strong>Number of songs</strong>: 26 (14% of total)</li>
@@ -1373,7 +1373,7 @@ beatles_core_metrics %&gt;%
 </div>
 <div id="concluding-remarks" class="section level2">
 <h2>Concluding remarks</h2>
-<p>K-means clustering has done a decent job of organising The Beatles’ overwhelmingly diverse discography into a set of coherent segments. The set of nine audio features clearly describe the tracks with some accuracy, allowing the algorithm to make sensible groupings. There remain some question marks - I am still scratching my head as to why early songs like ‘Love Me Do’ rank low on danceability - but overall the method has proved an effective means of studying one of the most eclectic rock portfolios in music history.</p>
+<p>K-means clustering has done a decent job of organising The Beatles’ diverse discography into a set of coherent segments. The nine audio features describe the tracks with some accuracy, allowing the algorithm to make sensible groupings. There remain some question marks - I am still scratching my head as to why early songs like ‘Love Me Do’ rank low on danceability - but overall the method has proved an effective means of studying one of the most eclectic rock portfolios in music history.</p>
 </div>
 
 

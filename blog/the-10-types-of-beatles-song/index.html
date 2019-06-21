@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="Joshua Feldman" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://joshua-feldman.github.io/blog/" />
-<meta property="og:title" content="Blog" />
-<meta property="twitter:title" content="Blog">
+<meta property="og:url" content="https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/" />
+<meta property="og:title" content="The 10 types of Beatles song" />
+<meta property="twitter:title" content="The 10 types of Beatles song">
 
     <meta property="twitter:card" content="summary">
 
@@ -26,10 +26,10 @@
 <title>
 
 
-     Joshua Feldman - Blog 
+     Joshua Feldman - The 10 types of Beatles song 
 
 </title>
-<link rel="canonical" href="https://joshua-feldman.github.io/blog/">
+<link rel="canonical" href="https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/">
 
 
 <style media="screen">
@@ -1061,8 +1061,6 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
 
 
 
-  <link href="https://joshua-feldman.github.io/blog/index.xml" rel="alternate" type="application/rss+xml" title="Joshua Feldman" />
-
 
 </head>
 
@@ -1070,7 +1068,7 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
 <body>
 
 
-<div class="header header-home column">
+<div class="header column">
 
     <div class="container">
         
@@ -1111,37 +1109,337 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
     </div>
 </div>
 
-<div class="main column">
+
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Blog</div>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                
-
-                
-                <ul>
-                    
-                      
-                        <li class="groupby">Jun, 2019</li>
-                        
-                          
-                            <li class="post-item">
-    <span class="meta">Jun 16, 2019</span>
     
-    <a href="https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/"><span>The 10 types of Beatles song</span></a>
+    The 10 types of Beatles song
     
-</li>
 
-                          
-                        
-                      
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Jun 16 2019 17:00:00 &#43;0000">Jun 16, 2019</div>
                     
-                </ul>
+                        
+                        <div class="author middot" title="Joshua Feldman">Joshua Feldman</div>
+                        
+                    
+                    
+                    <div class="reading-time middot">9 minute read</div>
+                    
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://joshua-feldman.github.io/tags/rstats">rstats</a> </li>
+                          
+                            <li class="middot"><a href="https://joshua-feldman.github.io/tags/beatles">beatles</a> </li>
+                          
+                            <li class="middot"><a href="https://joshua-feldman.github.io/tags/clustering">clustering</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+
+<p>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</p>
+<p><img src="https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg" alt="The Beatles in India" /> The Beatles in India (Source: Rolling Stone)</p>
+<p>For newcomers to the band, such diversity can be overwhelming. It might even appear that The Beatles’ music is uncategorisable – a series of discrete ventures into different genres and subgenres. However, with the power of <strong>k-means clustering</strong>, we can segment Beatles tracks according to nine acoustic features that are used by Spotify and academic researchers to classify music, namely:</p>
+<ul>
+<li><strong>Acousticness</strong>: Probability that a track was produced using acoustic instruments</li>
+<li><strong>Danceability</strong>: Based on tempo, rhythm stability, beat strength, etc</li>
+<li><strong>Energy</strong>: A measure of frenetic activity</li>
+<li><strong>Instrumentalness</strong>: Probability that a track was performed using only instrumental sounds</li>
+<li><strong>Liveness</strong>: Probability that a track was performed in front a live audience</li>
+<li><strong>Loudness</strong>: Self-explanatory; measured in decibels</li>
+<li><strong>Speechiness</strong>: The amount of spoken words in a track</li>
+<li><strong>Tempo</strong>: How fast/slow a track is</li>
+<li><strong>Valence</strong>: How happy/sad a track is is</li>
+</ul>
+<div id="data-retrieval-and-preparation" class="section level2">
+<h2>Data retrieval and preparation</h2>
+<p>The first thing we need to do is to retrieve the data. To do this, you need the <code>spotifyr</code> package and a client ID/secret for the Spotify API. To obtain access, follow the instructions on the <a href="https://developer.spotify.com/documentation/general/guides/authorization-guide/">Spotify for Developers website</a>.</p>
+<pre class="r"><code># Load necessary packages
+library(spotifyr)
+library(tidyverse)
+
+# Load Spotify credentials
+Sys.setenv(SPOTIFY_CLIENT_ID = read.csv(&quot;~/spotify/spotify_credentials.csv&quot;)[1,1])
+Sys.setenv(SPOTIFY_CLIENT_SECRET = read.csv(&quot;~/spotify/spotify_credentials.csv&quot;)[1,2])
+
+# Retrieve access token
+access_token &lt;- get_spotify_access_token()</code></pre>
+<p>Once we’re hooked into the API, we can use the <code>get_artist_audio_features()</code> function to retrieve The Beatles’ discography. Peeking inside the returned data frame, we can see columns on our audio features of interest – energy, tempo, duration, etc – as well as basic categorical features like album name, album release date and track name.</p>
+<pre class="r"><code># Retrieve audio features from Spotify
+beatles &lt;- get_artist_audio_features(&quot;The Beatles&quot;)
+
+# Print the first few rows
+head(beatles)</code></pre>
+<pre><code>## # A tibble: 6 x 23
+##   album_uri album_name album_img album_release_d… album_release_y…
+##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;            &lt;date&gt;          
+## 1 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## 2 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## 3 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## 4 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## 5 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## 6 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+## # … with 18 more variables: album_popularity &lt;int&gt;, track_name &lt;chr&gt;,
+## #   track_uri &lt;chr&gt;, danceability &lt;dbl&gt;, energy &lt;dbl&gt;, key &lt;chr&gt;,
+## #   loudness &lt;dbl&gt;, mode &lt;chr&gt;, speechiness &lt;dbl&gt;, acousticness &lt;dbl&gt;,
+## #   instrumentalness &lt;dbl&gt;, liveness &lt;dbl&gt;, valence &lt;dbl&gt;, tempo &lt;dbl&gt;,
+## #   duration_ms &lt;dbl&gt;, time_signature &lt;dbl&gt;, key_mode &lt;chr&gt;,
+## #   track_popularity &lt;int&gt;</code></pre>
+<p>The Beatles’ discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an <code>album_release_date</code> prior to 1971. We can then select our columns of interest and save them in a separate data frame.</p>
+<pre class="r"><code># Filter for albums released before 1971
+beatles_core &lt;- beatles %&gt;% 
+  filter(album_release_date &lt; &quot;1971-01-01&quot;)
+
+# Filter out bonus tracks on Sgt Pepper&#39;s album
+beatles_core &lt;- beatles_core[-(111:117),]
+
+# Select track name and acoustic features
+beatles_core_metrics &lt;- beatles_core %&gt;% 
+  select(track_name, danceability, energy, loudness, speechiness,
+         acousticness, instrumentalness, liveness, valence, tempo)</code></pre>
+</div>
+<div id="data-analysis" class="section level2">
+<h2>Data analysis</h2>
+<div id="elbow-plot" class="section level3">
+<h3>Elbow plot</h3>
+<p>To help us decide how many clusters to choose, we can use the <strong>elbow plot</strong> technique. Unfortunately, the elbow plot exhibits a smooth curve that does not make it easy to decide how many clusters would be appropriate. Nevertheless, 10 seems an appropriate number, since it sits somewhere in the middle of the elbow region of the plot.</p>
+<pre class="r"><code># Set seed for reproducibility
+set.seed(1234)
+
+# Scale the data
+beatles_core_metrics[2:10] &lt;- scale(beatles_core_metrics[2:10])
+
+# Use map_dbl to run many models with varying value of k (centers)
+tot_withinss &lt;- map_dbl(1:30,  function(k){
+  model &lt;- kmeans(x = beatles_core_metrics[2:10], centers = k)
+  model$tot.withinss
+})
+
+# Generate a data frame containing both k and tot_withinss
+elbow_df &lt;- data.frame(
+  k = 1:30,
+  tot_withinss = tot_withinss
+)
+
+# Plot the elbow plot
+ggplot(elbow_df, aes(x = k, y = tot_withinss)) +
+  geom_line() +
+  scale_x_continuous(breaks = 1:30) +
+  geom_vline(xintercept = 10, linetype = &quot;dashed&quot;)</code></pre>
+<p><img src="https://joshua-feldman.github.io/blog/2019-06-16-the-ten-types-of-beatles-song_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="k-means" class="section level3">
+<h3>K means</h3>
+<p>Now that we have decided on how many clusters to use, we can fit our k-means model by using the <code>kmeans</code> function in the built-in <code>stats</code> package.</p>
+<pre class="r"><code># Set seed for reproducibility
+set.seed(1234)
+
+# Run the model
+beatles_k &lt;- kmeans(beatles_core_metrics[2:10], centers = 10, nstart = 100)</code></pre>
+<p>We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the nine dimensions that we clustered them on, we can only compare two attributes at a time – for example energy and valence.</p>
+<pre class="r"><code># Save the clusters
+beatles_core_metrics$cluster &lt;- beatles_k$cluster
+
+# Plot energy against valence
+beatles_core_metrics %&gt;% 
+  ggplot(aes(energy, valence, color = as.factor(cluster))) +
+  geom_point()</code></pre>
+<p><img src="https://joshua-feldman.github.io/blog/2019-06-16-the-ten-types-of-beatles-song_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>We can get a more detailed impression of the clusters by looking at the matrix of <strong>cluster centres</strong>. The sign and magnitude of these values give us all the information we need to describe our clusters qualitatively.</p>
+<pre class="r"><code># Print cluster centres
+round(beatles_k$centers, 2)</code></pre>
+<pre><code>##    danceability energy loudness speechiness acousticness instrumentalness
+## 1          0.07   0.50     0.20        0.55        -0.29             0.00
+## 2          1.00  -0.67    -0.33       -0.31         1.10            -0.34
+## 3          0.28   0.40     0.31       -0.46        -0.90             3.20
+## 4         -0.81  -1.68    -2.39       -0.30         1.22             3.33
+## 5         -0.34   1.10     0.66        0.31        -0.20            -0.30
+## 6         -0.89  -0.11     0.09       -0.12        -0.75             0.02
+## 7         -0.22   0.30     0.45       -0.33         0.05            -0.34
+## 8         -0.38   0.20    -0.45        4.75         0.12             0.35
+## 9          0.71   0.28     0.39       -0.31        -0.78            -0.32
+## 10        -0.80  -1.69    -1.39       -0.29         1.44            -0.30
+##    liveness valence tempo
+## 1      2.84   -0.19 -0.58
+## 2     -0.44    0.29  0.04
+## 3     -0.09    1.03 -0.05
+## 4      0.09   -1.81 -0.88
+## 5      0.12    0.82  0.92
+## 6     -0.35   -1.04  0.84
+## 7      0.23    0.38 -1.06
+## 8      0.30   -0.43  0.35
+## 9     -0.46    0.54 -0.12
+## 10    -0.59   -1.35 -0.22</code></pre>
+</div>
+</div>
+<div id="summary-of-cluster-characteristics" class="section level2">
+<h2>Summary of cluster characteristics</h2>
+<div id="cluster-1-performances" class="section level3">
+<h3>Cluster #1: Performances</h3>
+<div class="figure">
+<img src="https://jeffreypepperrodgers.com/wp-content/uploads/2017/09/Beatles-rooftop-1969-1-e1506539070271-1024x477.jpg" alt="Get Back" />
+<p class="caption">Get Back</p>
+</div>
+<p>The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)</p>
+<ul>
+<li><strong>Key features</strong>: High liveness</li>
+<li><strong>Number of songs</strong>: 12 (7% of total)</li>
+<li><strong>Examples</strong>: Get Back; Sgt. Pepper’s Lonely Hearts Club Band; One After 909</li>
+</ul>
+<p>With high liveness, Cluster #1 tracks give the impression that they were recorded in front of a live audience. They are energetic and written with the stage in mind.</p>
+</div>
+<div id="cluster-2-ballads" class="section level3">
+<h3>Cluster #2: Ballads</h3>
+<p>Songs in Cluster #2 – which I’ve loosely called ‘Ballads’ – often tell folkish tales about love and relationships. The cluster also captures some of The Beatles’ experiments with baroque pop (‘Eleanor Rigby’, ‘For No One’) and music hall (‘When I’m Sixty Four’, ‘Your Mother Should Know’).</p>
+<ul>
+<li><strong>Key features</strong>: High acousticness, high danceability</li>
+<li><strong>Number of songs</strong>: 27 (15% of total)</li>
+<li><strong>Examples</strong>: In My Life; Eleanor Rigby; Michelle</li>
+</ul>
+</div>
+<div id="cluster-3-interludes" class="section level3">
+<h3>Cluster #3: Interludes</h3>
+<p>The three tracks in Cluster #3 are statistical anomalies, perhaps too short for their musical features to be reliably expressed. Nothing much to see here.</p>
+<ul>
+<li><strong>Key features</strong>: High instrumentalness, high valence, low acousticness</li>
+<li><strong>Number of songs</strong>: 3 (2% of total)</li>
+<li><strong>Examples</strong>: Birthday; Hey Bulldog; Words Of Love</li>
+</ul>
+</div>
+<div id="cluster-4-instrumentals" class="section level3">
+<h3>Cluster #4: Instrumentals</h3>
+<p>Cluster #4 comprises the instrumental portion of The Beatles’ portfolio. Most of the Yellow Submarine album – the soundtrack to the animated film of the same name – is sorted into this cluster.</p>
+<ul>
+<li><strong>Key features</strong>: High instrumentalness, low loudness, low valence</li>
+<li><strong>Number of songs</strong>: 9 (5% of total)</li>
+<li><strong>Examples</strong>: Pepperland; Sea Of Holes; Sea Of Monsters</li>
+</ul>
+</div>
+<div id="cluster-5-rockers" class="section level3">
+<h3>Cluster #5: Rockers</h3>
+<p>Cluster #5 is classic rock and roll, with high energy, high tempo and an upbeat mood. It picks up many of the early Beatles classics (‘Twist And Shout’, ‘I Saw Her Standing There’, ‘Love Me Do’), as well as the band’s later experiments with hard rock (‘Back in the U.S.S.R.’). This is a coherent cluster that works well as a standalone playlist.</p>
+<ul>
+<li><strong>Key features</strong>: High energy, high tempo</li>
+<li><strong>Number of songs</strong>: 27 (15% of total)</li>
+<li><strong>Examples</strong>: Twist And Shout; I Saw Her Standing There; Love Me Do</li>
+</ul>
+</div>
+<div id="cluster-6-meditations" class="section level3">
+<h3>Cluster #6: Meditations</h3>
+<p>Several of the tracks in this cluster were penned by George Harrison and show an Eastern or psychedelic influence (‘Tomorrow Never Knows’, ‘Blue Jay Way’). They are often sad and meditative, whether contemplating love and devotion (‘Something’) or the loneliness of a spiritual hermit (‘Dear Prudence’). There is a skew towards The Beatles’ later work, with no tracks from the first four albums.</p>
+<ul>
+<li><strong>Key features</strong>: Low valence</li>
+<li><strong>Number of songs</strong>: 25 (14% of total)</li>
+<li><strong>Examples</strong>: Here Comes The Sun; Something; Dear Prudence</li>
+</ul>
+</div>
+<div id="cluster-7-slowcoaches" class="section level3">
+<h3>Cluster #7: Slowcoaches</h3>
+<p>Cluster #7 is distinguished by its slow tempo, with languorous songs including ‘Dig A Pony’ (59 bpm), ‘Little Child’ (76 bpm) and ‘All My Loving’ (78 bpm). A fifth of the tracks are from the band’s second album, ‘With the Beatles’.</p>
+<ul>
+<li><strong>Key features</strong>: Low tempo</li>
+<li><strong>Number of songs</strong>: 25 (14% of total)</li>
+<li><strong>Examples</strong>: All You Need Is Love; Yellow Submarine; Hello, Goodbye</li>
+</ul>
+</div>
+<div id="cluster-8-vignettes" class="section level3">
+<h3>Cluster #8: Vignettes</h3>
+<p>This small cluster picks up some of The Beatles’ more lyrically dense tracks, primarily characterised by their descriptiveness and emphasis on the spoken word.</p>
+<ul>
+<li><strong>Key features</strong>: High speechiness</li>
+<li><strong>Number of songs</strong>: 25 (3% of total)</li>
+<li><strong>Examples</strong>: Strawberry Fields Forever; Polythene Pam; Maggie Mae</li>
+</ul>
+</div>
+<div id="cluster-9-middlers" class="section level3">
+<h3>Cluster #9: Middlers</h3>
+<p>Cluster #9 sits somewhere between the hard rock sound of Cluster #5 and the folk rock sound of Cluster #2. It has no distinguishing features, with fairly average loadings for all nine of the acoustic features. It is the most populous cluster, representing 21% of The Beatles’ discography.</p>
+<ul>
+<li><strong>Key features</strong>: None</li>
+<li><strong>Number of songs</strong>: 38 (21% of total)</li>
+<li><strong>Examples</strong>: Help!; A Hard Day’s Night; Eight Days A Week</li>
+</ul>
+</div>
+<div id="cluster-10-lullabies" class="section level3">
+<h3>Cluster #10: Lullabies</h3>
+<p>Cluster #10 is a collection of sleepy gems from The Beatles catalogue and works well as a standalone playlist (aside from the intrusion of ‘Her Majesty’ towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.</p>
+<ul>
+<li><strong>Key features</strong>: Low energy, high acousticness, low loudness</li>
+<li><strong>Number of songs</strong>: 12 (7% of total)</li>
+<li><strong>Examples</strong>: Yesterday; Blackbird; Golden Slumbers</li>
+</ul>
+</div>
+</div>
+<div id="concluding-remarks" class="section level2">
+<h2>Concluding remarks</h2>
+<p>K-means clustering has done a decent job of organising The Beatles’ diverse discography into a set of coherent segments. The nine audio features describe the tracks with some accuracy, allowing the algorithm to make sensible groupings.</p>
+<p>That said, the method does occasionally cluster on features that – although descriptive in a technical sense – do not convey the true mood or timbre of the music. For example, Cluster #8 is distinguished by ‘speechiness’, but the songs it captures would likely be placed elsewhere if sorted by hand. This is a problem with the the data itself rather than the algorithm.</p>
+<p>A more comprehensive clustering would could take into account the lyrics of each song, which we can imagine would help to group together songs about, for example, love and relationships. Even so, the current method has proved an effective means of studying one of the most eclectic rock portfolios in music history.</p>
+</div>
+
+
+            </div>
+            
+            <br>
+            <div class="share">
+                  
+                  <a href="" class="ssk ssk-facebook"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-twitter"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-google-plus"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-linkedin"></a>
+                  
+            </div>
+            
+            
+            <br>
+            <div class="navigation">
+                
+                <div style="width: 100%;"></div>
+                
+            </div>
+            
+            
+
+            
+
+            
         </div>
     </div>
 </div>
+
+
+
 <div class="footer column">
     <div class="container">
 

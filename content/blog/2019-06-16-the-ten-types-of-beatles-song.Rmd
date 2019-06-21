@@ -11,7 +11,7 @@ With 13 studio albums and a career that spanned more than a decade, The Beatles 
 ![The Beatles in India](https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg)
 The Beatles in India (Source: Rolling Stone)
 
-For newcomers to the band - and seasoned listeners alike - such diversity can be overwhelming. It might even appear that The Beatles' music is uncategorisable - a series of discrete ventures into different genres and subgenres. However, with the power of **k-means clustering**, we can segment Beatles tracks according to nine acoustic features that are used by Spotify and academic researchers to classify music, namely:
+For newcomers to the band, such diversity can be overwhelming. It might even appear that The Beatles' music is uncategorisable – a series of discrete ventures into different genres and subgenres. However, with the power of **k-means clustering**, we can segment Beatles tracks according to nine acoustic features that are used by Spotify and academic researchers to classify music, namely:
 
 * __Acousticness__: Probability that a track was produced using acoustic instruments
 * __Danceability__: Based on tempo, rhythm stability, beat strength, etc
@@ -28,23 +28,29 @@ For newcomers to the band - and seasoned listeners alike - such diversity can be
 The first thing we need to do is to retrieve the data. To do this, you need the `spotifyr` package and a client ID/secret for the Spotify API. To obtain access, follow the instructions on the [Spotify for Developers website](https://developer.spotify.com/documentation/general/guides/authorization-guide/).
 
 ```{r message = FALSE, warning = FALSE}
+# Load necessary packages
 library(spotifyr)
 library(tidyverse)
 
+# Load Spotify credentials
 Sys.setenv(SPOTIFY_CLIENT_ID = read.csv("~/spotify/spotify_credentials.csv")[1,1])
 Sys.setenv(SPOTIFY_CLIENT_SECRET = read.csv("~/spotify/spotify_credentials.csv")[1,2])
 
+# Retrieve access token
 access_token <- get_spotify_access_token()
 ```
 
-Once we're hooked into the API, we can use the `get_artist_audio_features()` function to retrieve the Beatles' discography. Peeking inside the returned data frame, we can see columns on our audio features of interest - energy, tempo, duration, etc - as well as basic categorical features like album name, album release date and track name.
+Once we're hooked into the API, we can use the `get_artist_audio_features()` function to retrieve The Beatles' discography. Peeking inside the returned data frame, we can see columns on our audio features of interest – energy, tempo, duration, etc – as well as basic categorical features like album name, album release date and track name.
 
 ```{r warning = FALSE}
+# Retrieve audio features from Spotify
 beatles <- get_artist_audio_features("The Beatles")
+
+# Print the first few rows
 head(beatles)
 ```
 
-The Beatles discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an `album_release_date` prior to 1971. We can then select our columns of interest and save them in a separate data frame.
+The Beatles' discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an `album_release_date` prior to 1971. We can then select our columns of interest and save them in a separate data frame.
 
 ```{r}
 # Filter for albums released before 1971
@@ -64,11 +70,13 @@ beatles_core_metrics <- beatles_core %>%
 
 ### Elbow plot
 
-To help us decide how many clusters to choose, we can use the **elbow plot** technique. Unfortunately, the elbow plot exhibits a smooth curve that does not make it easy to decide how many clusters would be appropriate. Nevertheless, **eight seems an appropriate number**, since it sits somewhere in the middle of the elbow region of the plot and just before a temporary spike.
+To help us decide how many clusters to choose, we can use the **elbow plot** technique. Unfortunately, the elbow plot exhibits a smooth curve that does not make it easy to decide how many clusters would be appropriate. Nevertheless, 10 seems an appropriate number, since it sits somewhere in the middle of the elbow region of the plot.
 
 ```{r}
+# Set seed for reproducibility
 set.seed(1234)
 
+# Scale the data
 beatles_core_metrics[2:10] <- scale(beatles_core_metrics[2:10])
 
 # Use map_dbl to run many models with varying value of k (centers)
@@ -95,23 +103,29 @@ ggplot(elbow_df, aes(x = k, y = tot_withinss)) +
 Now that we have decided on how many clusters to use, we can fit our k-means model by using the `kmeans` function in the built-in `stats` package.
 
 ```{r}
+# Set seed for reproducibility
 set.seed(1234)
+
+# Run the model
 beatles_k <- kmeans(beatles_core_metrics[2:10], centers = 10, nstart = 100)
 ```
 
-We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the nine dimensions that we clustered them on, we can only compare two attributes at a time - for example energy and valence.
+We can now assign clusters to each of the tracks and visualise how they differ in key attributes. However, since it is impossible to visualise all of the nine dimensions that we clustered them on, we can only compare two attributes at a time – for example energy and valence.
 
 ```{r}
+# Save the clusters
 beatles_core_metrics$cluster <- beatles_k$cluster
 
+# Plot energy against valence
 beatles_core_metrics %>% 
   ggplot(aes(energy, valence, color = as.factor(cluster))) +
   geom_point()
 ```
 
-We can get a more detailed impression of the clusters by looking at the **matrix of cluster centres**. The sign and magnitude of these values give us all the information we need to describe our clusters qualitatively.
+We can get a more detailed impression of the clusters by looking at the matrix of **cluster centres**. The sign and magnitude of these values give us all the information we need to describe our clusters qualitatively.
 
 ```{r}
+# Print cluster centres
 round(beatles_k$centers, 2)
 ```
 
@@ -123,7 +137,7 @@ round(beatles_k$centers, 2)
 
 The Beatles performing ‘Get Back’ on the rooftop of Apple Corps at 3 Savile Row (Source: Jeffrey Pepper Rodgers)
 
-* __Key features__: High liveness, high speechiness, high energy
+* __Key features__: High liveness
 * __Number of songs__: 12 (7% of total)
 * __Examples__: Get Back; Sgt. Pepper's Lonely Hearts Club Band; One After 909
 
@@ -131,9 +145,9 @@ With high liveness, Cluster #1 tracks give the impression that they were recorde
 
 ### Cluster #2: Ballads
 
-Songs in Cluster #2 – which I've loosely called 'Ballads' – often tell folkish tales about love and relationships. The cluster also captures some of the Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
+Songs in Cluster #2 – which I've loosely called 'Ballads' – often tell folkish tales about love and relationships. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
 
-* __Key features__: High acousticness, high danceability, low energy
+* __Key features__: High acousticness, high danceability
 * __Number of songs__: 27 (15% of total)
 * __Examples__: In My Life; Eleanor Rigby; Michelle
 
@@ -147,7 +161,7 @@ The three tracks in Cluster #3 are statistical anomalies, perhaps too short for 
 
 ### Cluster #4: Instrumentals
 
-Cluster #4 comprises the instrumental portion of the Beatles' portfolio. Most of the Yellow Submarine album – the soundtrack to the animated film of the same name – is sorted into this cluster.
+Cluster #4 comprises the instrumental portion of The Beatles' portfolio. Most of the Yellow Submarine album – the soundtrack to the animated film of the same name – is sorted into this cluster.
 
 * __Key features__: High instrumentalness, low loudness, low valence
 * __Number of songs__: 9 (5% of total)
@@ -157,15 +171,15 @@ Cluster #4 comprises the instrumental portion of the Beatles' portfolio. Most of
 
 Cluster #5 is classic rock and roll, with high energy, high tempo and an upbeat mood. It picks up many of the early Beatles classics ('Twist And Shout', 'I Saw Her Standing There', 'Love Me Do'), as well as the band's later experiments with hard rock ('Back in the U.S.S.R.'). This is a coherent cluster that works well as a standalone playlist.
 
-* __Key features__: High energy, high tempo, high valence
+* __Key features__: High energy, high tempo
 * __Number of songs__: 27 (15% of total)
 * __Examples__: Twist And Shout; I Saw Her Standing There; Love Me Do
 
 ### Cluster #6: Meditations
 
-Several of the tracks in this cluster were penned by George Harrison. They are often sad and meditative, whether contemplating love and devotion ('Something') or the loneliness of a spiritual hermit ('Dear Prudence'). There is a skew towards The Beatles' later work, with no tracks from the first four albums.
+Several of the tracks in this cluster were penned by George Harrison and show an Eastern or psychedelic influence ('Tomorrow Never Knows', 'Blue Jay Way'). They are often sad and meditative, whether contemplating love and devotion ('Something') or the loneliness of a spiritual hermit ('Dear Prudence'). There is a skew towards The Beatles' later work, with no tracks from the first four albums. 
 
-* __Key features__: Low valence, low danceability, high tempo
+* __Key features__: Low valence
 * __Number of songs__: 25 (14% of total)
 * __Examples__: Here Comes The Sun; Something; Dear Prudence
 
@@ -187,17 +201,17 @@ This small cluster picks up some of The Beatles' more lyrically dense tracks, pr
 
 ### Cluster #9: Middlers
 
-Cluster #9 sits somewhere between the hard rock sound of Cluster #5 and the folk rock sound of Cluster #2. It has no distinguishing features, with average loadings for all nine of the acoustic features. It is the most populous cluster, representing 21% of The Beatles' discography.
+Cluster #9 sits somewhere between the hard rock sound of Cluster #5 and the folk rock sound of Cluster #2. It has no distinguishing features, with fairly average loadings for all nine of the acoustic features. It is the most populous cluster, representing 21% of The Beatles' discography.
 
-* __Key features__: Low acousticness, high danceability, high valence
+* __Key features__: None
 * __Number of songs__: 38 (21% of total)
 * __Examples__: Help!; A Hard Day's Night; Eight Days A Week
 
 ### Cluster #10: Lullabies
 
-Cluster #10 is a collection of sleepy gems from the Beatles catalogue and works well as a standalone playlist (aside from the intrusion of 'Her Majesty' towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.
+Cluster #10 is a collection of sleepy gems from The Beatles catalogue and works well as a standalone playlist (aside from the intrusion of 'Her Majesty' towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.
 
-* __Key features__: Low energy, high acousticness, low loudness, low valence
+* __Key features__: Low energy, high acousticness, low loudness
 * __Number of songs__: 12 (7% of total)
 * __Examples__: Yesterday; Blackbird; Golden Slumbers
 
@@ -205,6 +219,6 @@ Cluster #10 is a collection of sleepy gems from the Beatles catalogue and works 
 
 K-means clustering has done a decent job of organising The Beatles' diverse discography into a set of coherent segments. The nine audio features describe the tracks with some accuracy, allowing the algorithm to make sensible groupings.
 
-That said, the method does occasionally cluster on features that - although descriptive in a technical sense - do not convey the true mood or timbre of the music. For example, Cluster #8 is distinguished by 'speechiness', but the songs it captures would likely be placed elsewhere if sorted by hand. This is a problem with the the data itself rather than the algorithm.
+That said, the method does occasionally cluster on features that – although descriptive in a technical sense – do not convey the true mood or timbre of the music. For example, Cluster #8 is distinguished by 'speechiness', but the songs it captures would likely be placed elsewhere if sorted by hand. This is a problem with the the data itself rather than the algorithm.
 
 A more comprehensive clustering would could take into account the lyrics of each song, which we can imagine would help to group together songs about, for example, love and relationships. Even so, the current method has proved an effective means of studying one of the most eclectic rock portfolios in music history.
