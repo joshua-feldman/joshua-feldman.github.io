@@ -6,6 +6,8 @@ categories: ["R"]
 tags: ["rstats", "beatles", "clustering"]
 ---
 
+<meta name="twitter:image" content="https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg">
+
 With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as 'The White Album', represented the height of their eclecticism, as it spanned hard rock ('Back in the USSR'), ska ('Ob-La-Di, Ob-La-Da'), country ('Rocky Racoon') and experimental ('Revolution 9').
 
 ![The Beatles in India](https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg)
@@ -146,7 +148,7 @@ With high liveness, Cluster #1 tracks give the impression that they were recorde
 
 ### Cluster #2: Ballads
 
-Songs in Cluster #2 – which I've loosely called 'Ballads' – come under the broad umbrella of 'folk rock', often telling wistful tales about colourful characters or romantic interests. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
+Songs in Cluster #2 – which I've loosely called 'Ballads' – come under the broad umbrella of folk rock, often telling wistful tales about colourful characters or romantic interests. The cluster also captures some of The Beatles' experiments with baroque pop ('Eleanor Rigby', 'For No One') and music hall ('When I'm Sixty Four', 'Your Mother Should Know').
 
 * __Key features__: High acousticness, high danceability
 * __Number of songs__: 27 (15% of total)
@@ -226,7 +228,7 @@ Cluster #9 sits somewhere between the hard rock sound of Cluster #5 and the folk
 
 ### Cluster #10: Lullabies
 
-Cluster #10 is a collection of sleepy gems from The Beatles catalogue and works well as a standalone playlist (aside from the intrusion of 'Her Majesty' towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.
+Cluster #10 is a collection of sleepy gems from The Beatles' catalogue and works well as a standalone playlist (aside from the intrusion of 'Her Majesty' towards the end). Primarily characterised by a low energy, it is a nice assortment of songs to drift away to.
 
 * __Key features__: Low energy, high acousticness, low loudness
 * __Number of songs__: 12 (7% of total)
