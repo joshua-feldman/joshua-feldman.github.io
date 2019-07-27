@@ -149,7 +149,7 @@ This suggests that an ambient album is 143% more likely to be recommended than a
 
 ## Conclusion
 
-Lo and Behold, RA does in fact have a bias towards ambient music - ambient albums are rated 0.12 points higher than non-ambient albums (p < 0.01) and are 143% more likely to be recommended (p < 0.01). Of course, this might be because of a genuine discrepancy in quality between the ambient and non-ambient music in RA's review catalogue; perhaps it reflects an 'objective' difference (insofar as there is objectivity in music perception), rather than a subjective bias on the part of the reviewers.
+Lo and behold, RA does in fact have a bias towards ambient music - ambient albums are rated 0.12 points higher than non-ambient albums (p < 0.01) and are 143% more likely to be recommended (p < 0.01). Of course, this might be because of a genuine discrepancy in quality between the ambient and non-ambient music in RA's review catalogue; perhaps it reflects an 'objective' difference (insofar as there is objectivity in music perception), rather than a subjective bias on the part of the reviewers.
 
 An alternative theory is that ambient music - at the abstract, often esoteric end of the electronic music spectrum - invokes a kind of social desirability bias, whereby the reviewer, forever wishing to flaunt their unorthodox taste, bends naturally towards the positive end of ambivalence. This way, if the reader doesn't enjoy the album being reviewed, they are the ones left feeling unsophisticated, apparently unable to appreciate the avant-garde.
 
