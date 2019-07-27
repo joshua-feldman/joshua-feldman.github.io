@@ -5,7 +5,7 @@ title = "Portfolio"
 
 ### TEACHING
 
-[What Makes a Pokémon Legendary?](https://www.datacamp.com/projects/567)</br>
+[What Makes a Pokémon Legendary?](https://www.datacamp.com/projects/712)</br>
 Use tree-based machine learning methods to identify the characteristics of legendary Pokémon.
 
 [Gender Bias in Graduate Admissions](https://www.datacamp.com/projects/567)</br>
