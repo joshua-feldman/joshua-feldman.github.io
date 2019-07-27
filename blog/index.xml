@@ -2,21 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Joshua Feldman</title>
-    <link>https://joshua-feldman.github.io/blog/</link>
+    <link>/blog/</link>
     <description>Recent content in Blog on Joshua Feldman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 16 Jun 2019 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 17:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://joshua-feldman.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Is Resident Advisor biased towards ambient music?</title>
+      <link>/blog/is-resident-advisor-biased-towards-ambient-music/</link>
+      <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
+      
+      <guid>/blog/is-resident-advisor-biased-towards-ambient-music/</guid>
+      <description>Resident Advisor (or ‘RA’ for its loyal readership of DJs and crate diggers) is an online magazine dedicated to electronic music. Since its launch in 2001, RA has reviewed thousands of LPs/EPs, which have ranged in style from house and techno to dubstep and drum and bass.
+After many years spent reading RA reviews, I started to suspect that the magazine has a bias towards ambient music - respective albums seemed to be receiving consistently good ratings and a disproportionate number of ‘RA Recommends’ awards.</description>
+    </item>
+    
+    <item>
       <title>The 10 types of Beatles song</title>
-      <link>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</link>
+      <link>/blog/the-10-types-of-beatles-song/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</guid>
+      <guid>/blog/the-10-types-of-beatles-song/</guid>
       <description>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</description>
     </item>
     

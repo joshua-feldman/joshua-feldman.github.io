@@ -2,30 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Joshua Feldman</title>
-    <link>https://joshua-feldman.github.io/</link>
+    <link>/</link>
     <description>Recent content on Joshua Feldman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 16 Jun 2019 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 17:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://joshua-feldman.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Is Resident Advisor biased towards ambient music?</title>
+      <link>/blog/is-resident-advisor-biased-towards-ambient-music/</link>
+      <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
+      
+      <guid>/blog/is-resident-advisor-biased-towards-ambient-music/</guid>
+      <description>Resident Advisor (or ‘RA’ for its loyal readership of DJs and crate diggers) is an online magazine dedicated to electronic music. Since its launch in 2001, RA has reviewed thousands of LPs/EPs, which have ranged in style from house and techno to dubstep and drum and bass.
+After many years spent reading RA reviews, I started to suspect that the magazine has a bias towards ambient music - respective albums seemed to be receiving consistently good ratings and a disproportionate number of ‘RA Recommends’ awards.</description>
+    </item>
+    
+    <item>
       <title>The 10 types of Beatles song</title>
-      <link>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</link>
+      <link>/blog/the-10-types-of-beatles-song/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</guid>
+      <guid>/blog/the-10-types-of-beatles-song/</guid>
       <description>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://joshua-feldman.github.io/about/about/</link>
+      <link>/about/about/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/about/about/</guid>
+      <guid>/about/about/</guid>
       <description>My name is Joshua Feldman and I am a Data Scientist at the BBC.
 My background is unconventional. My first degree was in English literature and I began my career working as a copywriter and freelance journalist. However, I also had a strong interest in statistics and social science, so decided to retrain with a master&amp;rsquo;s degree in quantitative research methodology from the London School of Economics.
 I have written for a variety of publications, including The Guardian and The Times, and published two projects on DataCamp.</description>
@@ -33,10 +43,10 @@ I have written for a variety of publications, including The Guardian and The Tim
     
     <item>
       <title>Portfolio</title>
-      <link>https://joshua-feldman.github.io/portfolio/portfolio/</link>
+      <link>/portfolio/portfolio/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/portfolio/portfolio/</guid>
+      <guid>/portfolio/portfolio/</guid>
       <description>TEACHING What Makes a Pokémon Legendary? Use tree-based machine learning methods to identify the characteristics of legendary Pokémon.
 Gender Bias in Graduate Admissions Analyze admissions data from UC Berkeley and find out if the university was biased against women.
 WRITING Postgrad study: a new perspective from the top of the hill The Guardian, 6 Jan 2017
@@ -45,19 +55,19 @@ Reconceptualising (systematic) Ideology in the Wake of Political Psychology Geor
     
     <item>
       <title>Home</title>
-      <link>https://joshua-feldman.github.io/home/</link>
+      <link>/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/home/</guid>
+      <guid>/home/</guid>
       <description></description>
     </item>
     
     <item>
       <title>License</title>
-      <link>https://joshua-feldman.github.io/license/</link>
+      <link>/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://joshua-feldman.github.io/license/</guid>
+      <guid>/license/</guid>
       <description>You can use this page to put a license on the contents of your blog, like so:
  The MIT License (MIT)
 Copyright &amp;copy; 2015 Nishanth Shanmughamnishanth.gerrard@gmail.com

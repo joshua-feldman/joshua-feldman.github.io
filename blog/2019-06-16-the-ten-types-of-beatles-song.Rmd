@@ -4,9 +4,9 @@ author: "Joshua Feldman"
 date: 2019-06-16T17:00:00-00:00
 categories: ["R"]
 tags: ["rstats", "beatles", "clustering"]
+images: 
+- /static/img/beatles.jpg
 ---
-
-<meta name="twitter:image" content="https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg">
 
 With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as 'The White Album', represented the height of their eclecticism, as it spanned hard rock ('Back in the USSR'), ska ('Ob-La-Di, Ob-La-Da'), country ('Rocky Racoon') and experimental ('Revolution 9').
 
@@ -35,8 +35,8 @@ library(spotifyr)
 library(tidyverse)
 
 # Load Spotify credentials
-Sys.setenv(SPOTIFY_CLIENT_ID = read.csv("~/spotify/spotify_credentials.csv")[1,1])
-Sys.setenv(SPOTIFY_CLIENT_SECRET = read.csv("~/spotify/spotify_credentials.csv")[1,2])
+Sys.setenv(SPOTIFY_CLIENT_ID = read_csv("~/spotify/spotify_credentials.csv")[1,1])
+Sys.setenv(SPOTIFY_CLIENT_SECRET = read_csv("~/spotify/spotify_credentials.csv")[1,2])
 
 # Retrieve access token
 access_token <- get_spotify_access_token()
