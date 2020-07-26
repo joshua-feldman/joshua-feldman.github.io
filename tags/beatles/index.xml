@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>beatles on Joshua Feldman</title>
-    <link>/tags/beatles/</link>
+    <link>https://joshua-feldman.github.io/tags/beatles/</link>
     <description>Recent content in beatles on Joshua Feldman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 16 Jun 2019 17:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/beatles/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joshua-feldman.github.io/tags/beatles/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The 10 types of Beatles song</title>
-      <link>/blog/the-10-types-of-beatles-song/</link>
+      <link>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
       
-      <guid>/blog/the-10-types-of-beatles-song/</guid>
-      <description>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</description>
+      <guid>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</guid>
+      <description>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag(&#39;js&#39;, new Date()); gtag(&#39;config&#39;, &#39;UA-173614398-1&#39;);  With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock.</description>
     </item>
     
   </channel>

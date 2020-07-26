@@ -1,14 +1,22 @@
----
+  ---
 title: "The 10 types of Beatles song"
 author: "Joshua Feldman"
 date: 2019-06-16T17:00:00-00:00
 categories: ["R"]
 tags: ["rstats", "beatles", "clustering"]
-images: 
+images:
 - /static/img/beatles.jpg
 ---
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173614398-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-173614398-1');
+</script>
 
 <p><meta name="twitter:image" content="https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg"></p>
 <p>With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).</p>
@@ -46,13 +54,13 @@ beatles &lt;- get_artist_audio_features(&quot;The Beatles&quot;)
 head(beatles)</code></pre>
 <pre><code>## # A tibble: 6 x 23
 ##   album_uri album_name album_img album_release_d… album_release_y…
-##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;            &lt;date&gt;          
-## 1 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
-## 2 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
-## 3 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
-## 4 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
-## 5 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
-## 6 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22      
+##   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;            &lt;date&gt;
+## 1 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
+## 2 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
+## 3 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
+## 4 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
+## 5 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
+## 6 3KzAvEXc… Please Pl… https://… 1963-03-22       1963-03-22
 ## # … with 18 more variables: album_popularity &lt;int&gt;, track_name &lt;chr&gt;,
 ## #   track_uri &lt;chr&gt;, danceability &lt;dbl&gt;, energy &lt;dbl&gt;, key &lt;chr&gt;,
 ## #   loudness &lt;dbl&gt;, mode &lt;chr&gt;, speechiness &lt;dbl&gt;, acousticness &lt;dbl&gt;,
@@ -61,14 +69,14 @@ head(beatles)</code></pre>
 ## #   track_popularity &lt;int&gt;</code></pre>
 <p>The Beatles’ discography on Spotify includes a lot of live albums and compilation albums that would muddy our analysis. To filter them out, we simply filter for an <code>album_release_date</code> prior to 1971. We can then select our columns of interest and save them in a separate data frame.</p>
 <pre class="r"><code># Filter for albums released before 1971
-beatles_core &lt;- beatles %&gt;% 
+beatles_core &lt;- beatles %&gt;%
   filter(album_release_date &lt; &quot;1971-01-01&quot;)
 
 # Filter out bonus tracks on Sgt Pepper&#39;s album
 beatles_core &lt;- beatles_core[-(111:117),]
 
 # Select track name and acoustic features
-beatles_core_metrics &lt;- beatles_core %&gt;% 
+beatles_core_metrics &lt;- beatles_core %&gt;%
   select(track_name, danceability, energy, loudness, speechiness,
          acousticness, instrumentalness, liveness, valence, tempo)</code></pre>
 </div>
@@ -115,7 +123,7 @@ beatles_k &lt;- kmeans(beatles_core_metrics[2:10], centers = 10, nstart = 100)</
 beatles_core_metrics$cluster &lt;- beatles_k$cluster
 
 # Plot energy against valence
-beatles_core_metrics %&gt;% 
+beatles_core_metrics %&gt;%
   ggplot(aes(energy, valence, color = as.factor(cluster))) +
   geom_point()</code></pre>
 <p><img src="/blog/2019-06-16-the-ten-types-of-beatles-song_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>

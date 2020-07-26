@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joshua Feldman</title>
-    <link>/tags/</link>
+    <link>https://joshua-feldman.github.io/tags/</link>
     <description>Recent content in Tags on Joshua Feldman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 27 Jul 2019 17:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joshua-feldman.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>resident advisor</title>
-      <link>/tags/resident-advisor/</link>
+      <link>https://joshua-feldman.github.io/tags/resident-advisor/</link>
       <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
       
-      <guid>/tags/resident-advisor/</guid>
+      <guid>https://joshua-feldman.github.io/tags/resident-advisor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rstats</title>
-      <link>/tags/rstats/</link>
+      <link>https://joshua-feldman.github.io/tags/rstats/</link>
       <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
       
-      <guid>/tags/rstats/</guid>
+      <guid>https://joshua-feldman.github.io/tags/rstats/</guid>
       <description></description>
     </item>
     
     <item>
       <title>beatles</title>
-      <link>/tags/beatles/</link>
+      <link>https://joshua-feldman.github.io/tags/beatles/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
       
-      <guid>/tags/beatles/</guid>
+      <guid>https://joshua-feldman.github.io/tags/beatles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>clustering</title>
-      <link>/tags/clustering/</link>
+      <link>https://joshua-feldman.github.io/tags/clustering/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
       
-      <guid>/tags/clustering/</guid>
+      <guid>https://joshua-feldman.github.io/tags/clustering/</guid>
       <description></description>
     </item>
     

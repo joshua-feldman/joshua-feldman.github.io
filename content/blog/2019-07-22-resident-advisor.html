@@ -10,9 +10,9 @@ categories: R
 
 
 
-<p><a href="https://www.residentadvisor.net/">Resident Advisor</a> (or ‘RA’ for its loyal readership of DJs and crate diggers) is an online magazine dedicated to electronic music. Since its launch in 2001, RA has reviewed thousands of LPs/EPs, which have ranged in style from house and techno to dubstep and drum and bass.</p>
-<p>After many years spent reading RA reviews, I started to suspect that the magazine has a bias towards ambient music - respective albums seemed to be receiving consistently good ratings and a disproportionate number of ‘RA Recommends’ awards.</p>
-<p>Geek that I am, I decided to test this theory formally. Back in May, I scraped 15k+ reviews from the RA website using their parent URL, <a href="https://www.residentadvisor.net/reviews" class="uri">https://www.residentadvisor.net/reviews</a>. I don’t talk about the data cleaning in this blog post (you can see the <code>data_preparation.R</code> file on GitHub if you’re really interested), but suffice it to say that I prepared a structured dataset with seven fields:</p>
+<p><a href="https://www.residentadvisor.net/">Resident Advisor</a> (or 'RA' for its loyal readership of DJs and crate diggers) is an online magazine dedicated to electronic music. Since its launch in 2001, RA has reviewed thousands of LPs/EPs, which have ranged in style from house and techno to dubstep and drum and bass.</p>
+<p>After many years spent reading RA reviews, I started to suspect that the magazine has a bias towards ambient music - respective albums seemed to be receiving consistently good ratings and a disproportionate number of 'RA Recommends' awards.</p>
+<p>Geek that I am, I decided to test this theory formally. Back in May, I scraped 15k+ reviews from the RA website using their parent URL, <a href="https://www.residentadvisor.net/reviews" class="uri">https://www.residentadvisor.net/reviews</a>. I don't talk about the data cleaning in this blog post (you can see the <code>data_preparation.R</code> file on GitHub if you're really interested), but suffice it to say that I prepared a structured dataset with seven fields:</p>
 <ul>
 <li><code>title</code>: the name of the artist and the LP/EP</li>
 <li><code>author</code>: the name of the journalist who wrote the review</li>
@@ -20,16 +20,16 @@ categories: R
 <li><code>genre</code>: the genre(s) associated with the album</li>
 <li><code>rating</code>: a numerical score from 0.5 to 5.0</li>
 <li><code>review</code>: the original text of the review</li>
-<li><code>ra_recommends</code>: a binary indicator for whether the album received an ‘RA Recommends’ accolade</li>
+<li><code>ra_recommends</code>: a binary indicator for whether the album received an 'RA Recommends' accolade</li>
 </ul>
 <p>Using this information, I was able to test my two hypotheses:</p>
 <ol style="list-style-type: decimal">
 <li>Albums that are tagged as ambient have significantly higher ratings, on average.</li>
-<li>Albums that are tagged as ambient are significantly more likely to be awarded ‘RA Recommends’.</li>
+<li>Albums that are tagged as ambient are significantly more likely to be awarded 'RA Recommends'.</li>
 </ol>
 <div id="preparation" class="section level2">
 <h2>Preparation</h2>
-<p>Most of the data preparation occurred when I was ingesting the data in the first place. However, to aid the analysis, I will use <strong>one-hot encoding</strong> to add a series of dummy variables for the most common genres. For example, I’ll add an <code>ambient</code> variable with two possible values: <code>1</code> if an album is tagged as ambient, and <code>0</code> if it is not.</p>
+<p>Most of the data preparation occurred when I was ingesting the data in the first place. However, to aid the analysis, I will use <strong>one-hot encoding</strong> to add a series of dummy variables for the most common genres. For example, I'll add an <code>ambient</code> variable with two possible values: <code>1</code> if an album is tagged as ambient, and <code>0</code> if it is not.</p>
 <pre class="r"><code>library(tidyverse)
 library(data.table)
 
@@ -49,7 +49,7 @@ df &lt;- df %&gt;%
 </div>
 <div id="exploration" class="section level2">
 <h2>Exploration</h2>
-<p>Now that the data is prepared, we are free to compare the distribution of ratings for ambient vs non-ambient music. We have a few options here - a boxplot or a violin plot would both be suitable - but I’ll go with a density plot to show a smoothed version of each distribution along the x-axis.</p>
+<p>Now that the data is prepared, we are free to compare the distribution of ratings for ambient vs non-ambient music. We have a few options here - a boxplot or a violin plot would both be suitable - but I'll go with a density plot to show a smoothed version of each distribution along the x-axis.</p>
 <pre class="r"><code>df %&gt;% 
   filter(!is.na(ambient)) %&gt;% 
   ggplot(aes(rating, fill = ambient)) +
@@ -71,8 +71,8 @@ df &lt;- df %&gt;%
   ggplot2::annotate(&quot;text&quot;, label = &quot;The dashed lines represent the\nmean of each distribution&quot;,
                     x = 2.9, y = 2.35, family = &quot;Raleway&quot;, size = 4)</code></pre>
 <p><img src="/blog/2019-07-22-resident-advisor_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>The density plot shows a clear difference in the distributions of ambient/non-ambient ratings. While the non-ambient distribution has well-defined peaks at .5 intervals (particularly at 3.5 and 4.0), the ambient distribution is flatter with a greater density of ratings <em>between</em> 3.5 and 4.0. Although the graph shows a difference between the mean of the two distributions, we don’t yet know whether this difference is statistically significant.</p>
-<p>Next, we will plot the percentage probability that each of the 10 most commonly reviewed genres - from ambient to techno - receives an ‘RA Recommends’ award.</p>
+<p>The density plot shows a clear difference in the distributions of ambient/non-ambient ratings. While the non-ambient distribution has well-defined peaks at .5 intervals (particularly at 3.5 and 4.0), the ambient distribution is flatter with a greater density of ratings <em>between</em> 3.5 and 4.0. Although the graph shows a difference between the mean of the two distributions, we don't yet know whether this difference is statistically significant.</p>
+<p>Next, we will plot the percentage probability that each of the 10 most commonly reviewed genres - from ambient to techno - receives an 'RA Recommends' award.</p>
 <pre class="r"><code>df %&gt;% 
   select(ra_recommends, ambient:techno) %&gt;% 
   gather(genre, genre_flag, ambient:techno) %&gt;% 
@@ -96,8 +96,9 @@ df &lt;- df %&gt;%
   guides(fill = FALSE) +
   ggplot2::annotate(&quot;text&quot;, x = 2, y = .0325, family = &quot;Raleway&quot;, size = 4,
                     label = paste(&quot;Overall mean: &quot;, round(mean(df$ra_recommends * 100), 2), &quot;%&quot;, sep = &quot;&quot;))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p><img src="/blog/2019-07-22-resident-advisor_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Here, the difference is a lot clearer: ambient albums have a greater chance of receiving an ‘RA Recommends’ award than any other major genre, with 5.52% of them receiving the accolade. It is worth noting that experimental - comparable to ambient in the abstraction of its musical form - is also more commended than average.</p>
+<p>Here, the difference is a lot clearer: ambient albums have a greater chance of receiving an 'RA Recommends' award than any other major genre, with 5.52% of them receiving the accolade. It is worth noting that experimental - comparable to ambient in the abstraction of its musical form - is also more commended than average.</p>
 </div>
 <div id="analysis" class="section level2">
 <h2>Analysis</h2>
@@ -164,7 +165,7 @@ summary(logistic_model)</code></pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>Lo and behold, RA does in fact have a bias towards ambient music - ambient albums are rated 0.12 points higher than non-ambient albums (p &lt; 0.01) and are 143% more likely to be recommended (p &lt; 0.01). Of course, this might be because of a genuine discrepancy in quality between the ambient and non-ambient music in RA’s review catalogue; perhaps it reflects an ‘objective’ difference (insofar as there is objectivity in music perception), rather than a subjective bias on the part of the reviewers.</p>
-<p>An alternative theory is that ambient music - at the abstract, often esoteric end of the electronic music spectrum - invokes a kind of social desirability bias, whereby the reviewer, forever wishing to flaunt their unorthodox taste, bends naturally towards the positive end of ambivalence. This way, if the reader doesn’t enjoy the album being reviewed, they are the ones left feeling unsophisticated, apparently unable to appreciate the avant-garde.</p>
+<p>Lo and behold, RA does in fact have a bias towards ambient music - ambient albums are rated 0.12 points higher than non-ambient albums (p &lt; 0.01) and are 143% more likely to be recommended (p &lt; 0.01). Of course, this might be because of a genuine discrepancy in quality between the ambient and non-ambient music in RA's review catalogue; perhaps it reflects an 'objective' difference (insofar as there is objectivity in music perception), rather than a subjective bias on the part of the reviewers.</p>
+<p>An alternative theory is that ambient music - at the abstract, often esoteric end of the electronic music spectrum - invokes a kind of social desirability bias, whereby the reviewer, forever wishing to flaunt their unorthodox taste, bends naturally towards the positive end of ambivalence. This way, if the reader doesn't enjoy the album being reviewed, they are the ones left feeling unsophisticated, apparently unable to appreciate the avant-garde.</p>
 <p>In any case, the <a href="https://github.com/joshua-feldman/resident-advisor/blob/master/resident-advisor.csv">Resident Advisor dataset</a> is now publicly available for your own explorations and musings. Enjoy!</p>
 </div>
