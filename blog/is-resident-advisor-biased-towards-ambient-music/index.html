@@ -2,6 +2,17 @@
 <html lang="en-US">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173614398-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-173614398-1');
+  </script>
+
+
 <meta charset="utf-8">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
@@ -26,7 +37,7 @@
 <title>
 
 
-     Joshua Feldman - Is Resident Advisor biased towards ambient music? 
+     Joshua Feldman - Is Resident Advisor biased towards ambient music?
 
 </title>
 <link rel="canonical" href="https://joshua-feldman.github.io/blog/is-resident-advisor-biased-towards-ambient-music/">
@@ -192,9 +203,9 @@ div.header .content {
   align-items: center;
 }
 div.header .container .logo {
-  
+
   max-width: 100px;
-  
+
   margin-left: -2em;
 }
 div.header .name {
@@ -202,9 +213,9 @@ div.header .name {
   font-size: 28px;
   font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
   letter-spacing: -0.005rem;
-  
+
   text-transform: uppercase;
-  
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -316,8 +327,8 @@ div.main .content .title-container {
   justify-content: space-between;
 }
 div.main .content .posts {
-  
-  
+
+
 }
 div.main .content .page-heading {
   font-size: 20px;
@@ -562,9 +573,9 @@ div.main .content .markdown a code:hover {
   text-decoration: underline;
 }
 div.main .content .markdown p {
-  
+
   text-align: justify;
-  
+
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -751,7 +762,7 @@ kbd {
 /* Fonts */
 
 
-.wf-raleway-n4-active body, 
+.wf-raleway-n4-active body,
 .wf-raleway-n4-active div.header nav ul a,
 .wf-raleway-n7-active div.main .content .page-heading,
 .wf-raleway-n2-active div.main .container.f04 .content .num,
@@ -905,9 +916,9 @@ div.main {
 padding-top: 0;
 }
 div.main .content {
-  
+
   font-size: 16px;
-  
+
 }
 div.main .container .content .post-item {
 display: flex;
@@ -1071,38 +1082,38 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
 <div class="header column">
 
     <div class="container">
-        
+
         <a href="https://joshua-feldman.github.io/"><img class="logo" src="https://joshua-feldman.github.io/img/me.png" alt="logo"></a>
-        
+
         <div class="content">
             <a href="https://joshua-feldman.github.io/"><div class="name"><h1>Joshua Feldman</h1></div></a>
             <nav>
                 <ul>
-                    
+
                             <li><a href="https://joshua-feldman.github.io/blog/">Blog</a></li>
-                    
-                    
-                        
-                            
-                        
-                    
-                        
-                            
+
+
+
+
+
+
+
+
                             <li><a href="https://joshua-feldman.github.io/about">about</a></li>
-                            
-                        
-                    
-                        
-                            
+
+
+
+
+
                             <li><a href="https://joshua-feldman.github.io/portfolio">portfolio</a></li>
-                            
-                        
-                    
-                    
-                        
-                    
-                        
-                    
+
+
+
+
+
+
+
+
                 </ul>
             </nav>
         </div>
@@ -1120,44 +1131,44 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
                 <div class="title-container">
                     <div class="page-heading">
 
-    
+
     Is Resident Advisor biased towards ambient music?
-    
+
 
 </div>
 
                 </div>
                 <div class="meta">
                     <div class="date" title="Sat Jul 27 2019 17:00:00 &#43;0000">Jul 27, 2019</div>
-                    
-                        
+
+
                         <div class="author middot" title="Joshua Feldman">Joshua Feldman</div>
-                        
-                    
-                    
+
+
+
                     <div class="reading-time middot">8 minute read</div>
-                    
+
                     <div class="tags">
                         <ul>
-                          
+
                             <li class="middot"><a href="https://joshua-feldman.github.io/tags/rstats">rstats</a> </li>
-                          
+
                             <li class="middot"><a href="https://joshua-feldman.github.io/tags/resident-advisor">resident advisor</a> </li>
-                          
+
                         </ul>
                     </div>
                     <div class="tags">
                         <ul>
-                          
-                          
+
+
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="markdown">
-                
-    
-    
+
+
+
 
 
 <p><a href="https://www.residentadvisor.net/">Resident Advisor</a> (or 'RA' for its loyal readership of DJs and crate diggers) is an online magazine dedicated to electronic music. Since its launch in 2001, RA has reviewed thousands of LPs/EPs, which have ranged in style from house and techno to dubstep and drum and bass.</p>
@@ -1185,25 +1196,25 @@ library(data.table)
 
 df &lt;- read_csv(&quot;https://github.com/joshua-feldman/resident-advisor/raw/master/resident-advisor.csv&quot;)
 
-df &lt;- df %&gt;% 
-  mutate(ambient = as.factor(ifelse(genre == &quot;ambient&quot; | genre %like% &quot;\\bambient\\b&quot;, 1, 0))) %&gt;% 
-  mutate(deephouse = as.factor(ifelse(genre == &quot;deephouse&quot; | genre %like% &quot;\\bdeephouse\\b&quot;, 1, 0))) %&gt;% 
-  mutate(disco = as.factor(ifelse(genre == &quot;disco&quot; | genre %like% &quot;\\bdisco\\b&quot;, 1, 0))) %&gt;% 
-  mutate(dubstep = as.factor(ifelse(genre == &quot;dubstep&quot; | genre %like% &quot;\\bdubstep\\b&quot;, 1, 0))) %&gt;% 
-  mutate(electro = as.factor(ifelse(genre == &quot;electro&quot; | genre %like% &quot;\\belectro\\b&quot;, 1, 0))) %&gt;% 
-  mutate(experimental = as.factor(ifelse(genre == &quot;experimental&quot; | genre %like% &quot;\\bexperimental\\b&quot;, 1, 0))) %&gt;% 
-  mutate(house = as.factor(ifelse(genre == &quot;house&quot; | genre %like% &quot;\\bhouse\\b&quot;, 1, 0))) %&gt;% 
-  mutate(minimal = as.factor(ifelse(genre == &quot;minimal&quot; | genre %like% &quot;\\bminimal\\b&quot;, 1, 0))) %&gt;% 
-  mutate(techhouse = as.factor(ifelse(genre == &quot;techhouse&quot; | genre %like% &quot;\\btechhouse\\b&quot;, 1, 0))) %&gt;% 
+df &lt;- df %&gt;%
+  mutate(ambient = as.factor(ifelse(genre == &quot;ambient&quot; | genre %like% &quot;\\bambient\\b&quot;, 1, 0))) %&gt;%
+  mutate(deephouse = as.factor(ifelse(genre == &quot;deephouse&quot; | genre %like% &quot;\\bdeephouse\\b&quot;, 1, 0))) %&gt;%
+  mutate(disco = as.factor(ifelse(genre == &quot;disco&quot; | genre %like% &quot;\\bdisco\\b&quot;, 1, 0))) %&gt;%
+  mutate(dubstep = as.factor(ifelse(genre == &quot;dubstep&quot; | genre %like% &quot;\\bdubstep\\b&quot;, 1, 0))) %&gt;%
+  mutate(electro = as.factor(ifelse(genre == &quot;electro&quot; | genre %like% &quot;\\belectro\\b&quot;, 1, 0))) %&gt;%
+  mutate(experimental = as.factor(ifelse(genre == &quot;experimental&quot; | genre %like% &quot;\\bexperimental\\b&quot;, 1, 0))) %&gt;%
+  mutate(house = as.factor(ifelse(genre == &quot;house&quot; | genre %like% &quot;\\bhouse\\b&quot;, 1, 0))) %&gt;%
+  mutate(minimal = as.factor(ifelse(genre == &quot;minimal&quot; | genre %like% &quot;\\bminimal\\b&quot;, 1, 0))) %&gt;%
+  mutate(techhouse = as.factor(ifelse(genre == &quot;techhouse&quot; | genre %like% &quot;\\btechhouse\\b&quot;, 1, 0))) %&gt;%
   mutate(techno = as.factor(ifelse(genre == &quot;techno&quot; | genre %like% &quot;\\btechno\\b&quot;, 1, 0)))</code></pre>
 </div>
 <div id="exploration" class="section level2">
 <h2>Exploration</h2>
 <p>Now that the data is prepared, we are free to compare the distribution of ratings for ambient vs non-ambient music. We have a few options here - a boxplot or a violin plot would both be suitable - but I'll go with a density plot to show a smoothed version of each distribution along the x-axis.</p>
-<pre class="r"><code>df %&gt;% 
-  filter(!is.na(ambient)) %&gt;% 
+<pre class="r"><code>df %&gt;%
+  filter(!is.na(ambient)) %&gt;%
   ggplot(aes(rating, fill = ambient)) +
-  geom_density(alpha = 0.5) + 
+  geom_density(alpha = 0.5) +
   labs(title = &quot;Density plot of Resident Advisor ratings for ambient vs non-ambient music&quot;,
        subtitle = &quot;Based on 15k+ reviews from Feb 2001 to May 2019&quot;,
        x = NULL,
@@ -1223,15 +1234,15 @@ df &lt;- df %&gt;%
 <p><img src="https://joshua-feldman.github.io/blog/2019-07-22-resident-advisor_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>The density plot shows a clear difference in the distributions of ambient/non-ambient ratings. While the non-ambient distribution has well-defined peaks at .5 intervals (particularly at 3.5 and 4.0), the ambient distribution is flatter with a greater density of ratings <em>between</em> 3.5 and 4.0. Although the graph shows a difference between the mean of the two distributions, we don't yet know whether this difference is statistically significant.</p>
 <p>Next, we will plot the percentage probability that each of the 10 most commonly reviewed genres - from ambient to techno - receives an 'RA Recommends' award.</p>
-<pre class="r"><code>df %&gt;% 
-  select(ra_recommends, ambient:techno) %&gt;% 
-  gather(genre, genre_flag, ambient:techno) %&gt;% 
-  filter(genre_flag == 1) %&gt;% 
-  group_by(genre) %&gt;% 
-  summarise(ra_recommends = mean(as.numeric(ra_recommends), na.rm = TRUE)) %&gt;% 
-  mutate(genre = reorder(genre, ra_recommends)) %&gt;% 
-  mutate(label = paste(round(ra_recommends * 100, 2), &quot;%&quot;, sep = &quot;&quot;)) %&gt;% 
-  mutate(ambient_flag = ifelse(genre == &quot;ambient&quot;, 1, 0)) %&gt;% 
+<pre class="r"><code>df %&gt;%
+  select(ra_recommends, ambient:techno) %&gt;%
+  gather(genre, genre_flag, ambient:techno) %&gt;%
+  filter(genre_flag == 1) %&gt;%
+  group_by(genre) %&gt;%
+  summarise(ra_recommends = mean(as.numeric(ra_recommends), na.rm = TRUE)) %&gt;%
+  mutate(genre = reorder(genre, ra_recommends)) %&gt;%
+  mutate(label = paste(round(ra_recommends * 100, 2), &quot;%&quot;, sep = &quot;&quot;)) %&gt;%
+  mutate(ambient_flag = ifelse(genre == &quot;ambient&quot;, 1, 0)) %&gt;%
   ggplot(aes(genre, ra_recommends, label = label, fill = ambient_flag)) +
   geom_col() +
   geom_text(family = &quot;Raleway&quot;, fontface = &quot;bold&quot;, hjust = -0.1, size = 4) +
@@ -1257,24 +1268,24 @@ df &lt;- df %&gt;%
 <p>To test the first hypothesis, we will run a simple linear regression that predicts <code>rating</code> as a function of <code>experimental</code>. Since the Y variable is continuous and the X variable is binary categorical, this is equivalent to a two-sample t-test.</p>
 <pre class="r"><code>linear_model &lt;- lm(rating ~ ambient, data = df)
 summary(linear_model)</code></pre>
-<pre><code>## 
+<pre><code>##
 ## Call:
 ## lm(formula = rating ~ ambient, data = df)
-## 
+##
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.68236 -0.18236  0.01764  0.31764  1.31764 
-## 
+##      Min       1Q   Median       3Q      Max
+## -2.68236 -0.18236  0.01764  0.31764  1.31764
+##
 ## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
+##             Estimate Std. Error t value Pr(&gt;|t|)
 ## (Intercept) 3.682357   0.004182  880.59  &lt; 2e-16 ***
 ## ambient1    0.117883   0.017780    6.63 3.47e-11 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
+##
 ## Residual standard error: 0.4988 on 15058 degrees of freedom
 ##   (635 observations deleted due to missingness)
-## Multiple R-squared:  0.002911,   Adjusted R-squared:  0.002844 
+## Multiple R-squared:  0.002911,   Adjusted R-squared:  0.002844
 ## F-statistic: 43.96 on 1 and 15058 DF,  p-value: 3.472e-11</code></pre>
 <p>The model shows that experimental albums are rated, on average, 0.12 points higher than non-experimental albums. This effect may be small, but it is significant at the 1% significance level, and we can therefore reject the null hypothesis that there is zero difference between the two groups.</p>
 </div>
@@ -1283,32 +1294,32 @@ summary(linear_model)</code></pre>
 <p>To test the second hypothesis, we will run a binary logistic regression that predicts <code>ra_recommends</code> as a function of <code>experimental</code>.</p>
 <pre class="r"><code>logistic_model &lt;- glm(ra_recommends ~ ambient, data = df, family = &quot;binomial&quot;)
 summary(logistic_model)</code></pre>
-<pre><code>## 
+<pre><code>##
 ## Call:
 ## glm(formula = ra_recommends ~ ambient, family = &quot;binomial&quot;, data = df)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -0.3371  -0.2180  -0.2180  -0.2180   2.7393  
-## 
+##
+## Deviance Residuals:
+##     Min       1Q   Median       3Q      Max
+## -0.3371  -0.2180  -0.2180  -0.2180   2.7393
+##
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)    
+##             Estimate Std. Error z value Pr(&gt;|z|)
 ## (Intercept) -3.72800    0.05537 -67.328  &lt; 2e-16 ***
 ## ambient1     0.88841    0.16148   5.502 3.76e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
+##
 ## (Dispersion parameter for binomial family taken to be 1)
-## 
+##
 ##     Null deviance: 3546.8  on 15059  degrees of freedom
 ## Residual deviance: 3522.1  on 15058  degrees of freedom
 ##   (635 observations deleted due to missingness)
 ## AIC: 3526.1
-## 
+##
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p>Since the model is logistic, its coefficients are given on the log odds scale. To work out the odds that an experimental album is recommended <em>as opposed to</em> a non-ambient album, we simply exponentiate the beta coefficient.</p>
 <pre class="r"><code>exp(logistic_model$coefficients[2])</code></pre>
-<pre><code>## ambient1 
+<pre><code>## ambient1
 ## 2.431267</code></pre>
 <p>This suggests that an ambient album is 143% more likely to be recommended than a non-ambient album.</p>
 </div>
@@ -1322,41 +1333,41 @@ summary(logistic_model)</code></pre>
 
 
             </div>
-            
+
             <br>
             <div class="share">
-                  
+
                   <a href="" class="ssk ssk-facebook"></a>
-                  
-                  
+
+
                   <a href="" class="ssk ssk-twitter"></a>
-                  
-                  
+
+
                   <a href="" class="ssk ssk-google-plus"></a>
-                  
-                  
+
+
                   <a href="" class="ssk ssk-linkedin"></a>
-                  
+
             </div>
-            
-            
+
+
             <br>
             <div class="navigation">
-                
+
                 <div>
                     <img class="icon" src="https://joshua-feldman.github.io/img/back.svg" alt="back" />
                     <a href="https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/">The 10 types of Beatles song</a>
                 </div>
-                
+
                 <div style="width: 100%;"></div>
-                
+
             </div>
-            
-            
 
-            
 
-            
+
+
+
+
         </div>
     </div>
 </div>
@@ -1366,60 +1377,60 @@ summary(logistic_model)</code></pre>
 <div class="footer column">
     <div class="container">
 
-        
+
 
         <div class="copyright">
 
-        
-            
+
+
                 <a href="https://joshua-feldman.github.io/license">Copyright © 2019 Joshua Feldman</a>
-            
-        
+
+
 
         </div>
         <div class="icons">
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
+
+
+
+
+
+
             <a href="https://github.com/joshua-feldman" rel=me target="_blank">
                 <img class="icon" src="https://joshua-feldman.github.io/img/github.svg" alt="github" />
             </a>
-        
 
-        
+
+
             <a href="https://twitter.com/JoshuaFeIdman" rel=me target="_blank">
                 <img class="icon" src="https://joshua-feldman.github.io/img/twitter.svg" alt="twitter" />
             </a>
-        
 
-        
+
+
             <a href="https://www.linkedin.com/in/joshua-feldman-3b9a437b/" rel=me target="_blank">
                 <img class="icon" src="https://joshua-feldman.github.io/img/linkedin.svg" alt="linkedin" />
             </a>
-        
 
-        
 
-        
+
+
+
             <a href="mailto:joshuafeldman@hotmail.com">
                 <img class="icon" src="https://joshua-feldman.github.io/img/email.svg" alt="email" />
             </a>
-        
 
-        
+
+
             <a href="https://joshua-feldman.github.io/index.xml">
                 <img class="icon" src="https://joshua-feldman.github.io/img/rss.svg" alt="rss" />
             </a>
-        
+
 
         </div>
     </div>
@@ -1438,7 +1449,7 @@ summary(logistic_model)</code></pre>
 
 
   <script src="https://joshua-feldman.github.io/js/highlight.min.js" defer></script>
-  
+
 
 
 
@@ -1455,20 +1466,20 @@ summary(logistic_model)</code></pre>
 
 <script>
   window.onload = function() {
-    
+
       hljs.initHighlighting();
-    
-    
+
+
       progressively.init({delay: 30, throttle: 50});
-    
-    
+
+
       SocialShareKit.init({
         twitter: {
             text: '',
             via: 'JoshuaFeIdman'
         }
       });
-    
+
   };
 </script>
 
@@ -1477,4 +1488,3 @@ summary(logistic_model)</code></pre>
 
 </body>
 </html>
-
