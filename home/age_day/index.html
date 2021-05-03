@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Life–Date Converter</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+    </head>
+    <body>
+      <!-- <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="2bbGHccQ"></script>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script> -->
+<!-- HEADERS -->
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Life–Date Converter</h1>
+  <h4>If your life were a calendar year, what date would it be?</h4>
+</div>
+
+<!-- FORM -->
+      <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4 form-groups">
+      <div class="form-group">
+
+      <!-- Date of birth -->
+      <label class="inputLabel">Date of birth</label>
+      <input id="birthDate" type="date" value="1991-06-01" class="form-control">
+
+      </div>
+
+      <!-- Lifespan -->
+      <div class="form-group">
+      <label class = "inputLabel">Lifespan (years)</label>
+      <input id="lifespan" type="number" min=0 max=999 value=80 step=1 class="form-control">
+    </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+      <input id="submitButton" type="button" value="Calculate Age–Date" class="btn btn-primary btn-block" style="font-family: 'Raleway'">
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>
+
+<!-- DATAVIZ -->
+<div class="container">
+
+<div class="row">
+<div class="col-sm-12">
+  <div id="viz" class="svg-container">
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="container">
+
+<div class="row">
+  <div class="col-sm-12">
+  <p id="output" style='color:#404040'>Hello!</p>
+</div>
+</div>
+
+<div id="footnote" style="opacity:0; visibility:hidden">
+
+<div class="row social-media">
+  <div class="col-sm-12">
+    <!-- <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <br/>
+    <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=Hello%20world"
+      data-size="large">
+    Tweet</a> -->
+    <button type="button" class="btn"><a href="#" class="fa fa-facebook"></a></button>
+    <button type="button" class="btn"><a href="https://twitter.com/intent/tweet?text=If%20my%20life%20were%20a%20calendar%20year,%20the%20date%20would%20be%2017%20May." class="fa fa-twitter"></a></button>
+</div>
+</div>
+
+<div class="row small">
+  <div class="col-sm-12">
+  <p>A simple app in D3 by <a href="https://twitter.com/JoshuaFeIdman">Joshua Feldman</a></p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+        <script type="text/javascript">
+
+          var parseTime = d3.timeParse("%Y-%m-%d");
+
+          var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          var monthsAbb = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+          var scale = d3.scaleTime()
+                        .domain([0, 1])
+                        .range([new Date("2001-01-01"), new Date("2002-01-01")]);
+
+          var calculateLifeProgress = function() {
+
+            // Birth date
+            var birthDate = d3.select("#birthDate").property("value");
+            birthDate = parseTime(birthDate);
+
+            var birthYear = birthDate.getFullYear();
+            var birthMonth = birthDate.getMonth();
+            var birthDay = birthDate.getDate();
+
+            // Current date
+            var currentDate = new Date;
+
+            // Lifespan
+            var lifespan = d3.select("#lifespan").property("value");
+            lifespan = parseInt(lifespan);
+
+            // Death date
+            var deathDate = new Date(birthYear + lifespan, birthMonth, birthDay);
+
+            // Differences
+            var currentDiffTime = Math.abs(currentDate - birthDate);
+            var currentDiffDays = Math.ceil(currentDiffTime / (1000 * 60 * 60 * 24));
+
+            var deathDiffTime = Math.abs(deathDate - birthDate);
+            var deathDiffDays = Math.ceil(deathDiffTime / (1000 * 60 * 60 * 24));
+
+            // Calculate life progress
+            var lifeProgress = currentDiffTime / deathDiffTime;
+            return lifeProgress;
+
+          }
+
+
+
+          var h = 50;
+          var w = 800;
+          var r = 10;
+
+          var svg = d3.select("#viz")
+                      .append("svg")
+                      // .attr("height", h)
+                      // .attr("width", w)
+                      .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 800 50")
+  .classed("svg-content", true);
+
+          svg.append("rect")
+             .attr("rx", r)
+             .attr("ry", r)
+             .attr("fill", "#e9ecef")
+             .attr('height', h)
+             .attr("width", w);
+
+          // Create lines between months
+          var monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+          var iMonthLengths = [];
+
+          const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+          for (i = 0; i <= 10; i++) {
+
+              iMonthLengths.push(monthLengths[i]);
+
+              svg.append("line")
+                 .attr("stroke", "lightgrey")
+                 .attr("stroke-width", 1)
+                 .attr('x1', (iMonthLengths.reduce(reducer) / 365) * w)
+                 .attr('x2', (iMonthLengths.reduce(reducer) / 365) * w)
+                 .attr('y1', 0)
+                 .attr('y2', h);
+
+          }
+
+          // Create month labels
+          var monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+          var iMonthLengths = [0];
+
+          for (i = 0; i <= 11; i++) {
+
+              var prevSum = iMonthLengths.reduce(reducer);
+
+              iMonthLengths.push(monthLengths[i]);
+
+              var newSum = iMonthLengths.reduce(reducer);
+
+              var textPos = (newSum + prevSum) / 2;
+
+              svg.append("text")
+                 .attr("x", (textPos / 365) * w)
+                 .attr("y", h / 2)
+                 .attr("text-anchor", "middle")
+                 .attr("alignment-baseline", "middle")
+                 .attr("font-family", "Raleway")
+                 .text(monthsAbb[i])
+
+          }
+
+
+          var progress = svg.append('rect')
+					.attr('fill', '#bc5090')
+          .attr('class', 'progress')
+					.attr('height', h)
+					.attr('width', 0)
+					.attr('rx', r)
+					.attr('ry', r)
+          .attr("x", 0)
+          .attr("y", 0);
+
+          d3.select("#birthDate").on("change", function() {
+
+            var lifeProgress = calculateLifeProgress();
+            console.log(lifeProgress);
+            if (lifeProgress > 1) {
+
+              console.log("fail");
+              document.getElementById("submitButton").disabled = true;
+
+            } else {
+              document.getElementById("submitButton").disabled = false;
+            }
+
+          })
+
+          d3.select("#lifespan").on("change", function() {
+
+            var lifeProgress = calculateLifeProgress();
+            if (lifeProgress > 1) {
+
+              console.log("fail");
+              document.getElementById("submitButton").disabled = true;
+
+            } else {
+              document.getElementById("submitButton").disabled = false;
+            }
+
+          })
+
+          var vizspan = d3.select("#viz")
+          .append("span")
+          .style('width', "0%")
+          .style("height", "62%")
+
+
+          d3.select("#submitButton").on("click", function() {
+
+            // Lifespan
+            var lifespan = d3.select("#lifespan").property("value");
+            lifespan = parseInt(lifespan);
+
+            var lifeProgress = calculateLifeProgress();
+
+            progress.transition()
+            .duration(1000)
+            .attr('width', lifeProgress * w)
+            .attr('class', 'diagonal-stripe-1');
+
+            var out = d3.select("#output")
+              .html("Assuming a lifespan of " + "<strong>" + lifespan + " years" + "</strong>, " + "the date would be " + "<strong>" + scale(lifeProgress).getDate() + " " + months[scale(lifeProgress).getMonth()] + "</strong>" + " if your life were a calendar year.")
+              .style("opacity", 0)
+              .style("color", "white");
+
+            out.transition().duration(500).style("opacity", 1);
+
+            console.log("Assuming a lifespan of " + lifespan + " years, the date would be " + scale(lifeProgress) + " if your life were a calendar year.");
+            // document.getElementById("output").innerText = "Assuming a lifespan of " + lifespan + " years, the date would be " + scale(lifeProgress) + " if your life were a calendar year.";
+
+            vizspan
+            .classed("animate", false)
+            .attr("class", "animate")
+            .transition()
+            .duration(1000)
+            .style("width", function() {
+              return lifeProgress * 100 + "%"
+            })
+            .style("height", "62%");
+
+            d3.select("#footnote")
+            .style("visibility", "visible")
+            .transition()
+            .duration(1000)
+            .style("opacity", 1)
+
+          })
+
+
+        </script>
+    </body>
+</html>

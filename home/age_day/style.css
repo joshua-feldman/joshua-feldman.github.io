@@ -1,0 +1,209 @@
+.social-media {
+  text-align: center !important;
+  position: block-inline !important;
+}
+
+.fa {
+  text-decoration: none !important;
+  font-size: 30px !important;
+}
+
+/* CANDY STRIPES */
+.animate {
+  content: "" !important;
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  ) !important;
+  z-index: 3 !important;
+  background-size: 50px 50px !important;
+  animation: move 2s linear infinite !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  overflow: hidden;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 10%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+body {
+  background-color: #404040 !important;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, p, input, label, button {
+  font-family: Raleway;
+}
+
+h1 {
+  font-weight: 500 !important;
+}
+
+h4, h5 {
+  font-weight: 300 !important;
+}
+
+a {
+  color: white !important;
+  text-decoration: underline !important;
+}
+
+.small {
+  font-family: Raleway;
+  color: white;
+  text-align: center;
+}
+
+.jumbotron {
+  background-color: #2e2e2e !important;
+  color: white;
+  padding: 40px !important;
+  margin-bottom: 20px !important;
+}
+
+.form-groups {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  text-align: center;
+}
+
+#viz {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.6));
+  margin-top: 20px !important;
+  text-align: center;
+  margin-bottom: -15px !important;
+}
+
+#output {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#submitButton {
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 9px 9px 9px #999;
+}
+
+#submitButton:hover {background-color: #3e8e41}
+
+#submitButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px)
+}
+
+#submitButton, #submitButton:active, #submitButton:focus {
+  background-color: #bc5090 !important;
+  border-color: #bc5090 !important;
+  font-weight: bold;
+}
+
+/* #intro {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c1/Poertschach_Landspitz_Eiche_im_Herbstkleid_11102013_562.jpg');
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+#overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.form-groups {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h1 {
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  margin-top: 5px;
+}
+
+p, h4 {
+  font-family: Raleway, sans-serif;
+  text-align: center;
+}
+
+#viz {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#inputs {
+  text-align: center;
+}
+
+#divSubmit {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.inputLabel {
+  margin-bottom: 5px;
+}
+
+#years {
+  display:inline-block;
+  margin: 0;
+}
+
+#submit {
+  display:inline;
+} */
