@@ -101,8 +101,9 @@
       href="https://twitter.com/intent/tweet?text=Hello%20world"
       data-size="large">
     Tweet</a> -->
-    <button type="button" class="btn"><a href="#" class="fa fa-facebook"></a></button>
+    <button type="button" class="btn"><a href="https://www.facebook.com/sharer/sharer.php?u=http://joshuafeldman.co.uk/age-date-converter" class="fa fa-facebook"></a></button>
     <button type="button" class="btn"><a id="twitter" class="fa fa-twitter"></a></button>
+    <button type="button" class="btn"><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://joshuafeldman.co.uk/age-date-converter" class="fa fa-linkedin"></a></button>
 </div>
 </div>
 
@@ -310,10 +311,10 @@
             .style("visibility", "visible")
             .transition()
             .duration(1000)
-            .style("opacity", 1)
+            .style("opacity", 1);
 
-            d3.select("twitter")
-              .attr("href", "https://twitter.com/intent/tweet?text=If%20my%20life%20were%20a%20calendar%20year,%20the%20date%20would%20be%20" + dayMonth + ".")
+            d3.select("#twitter")
+              .attr("href", "https://twitter.com/intent/tweet?text=If%20my%20life%20were%20a%20calendar%20year,%20the%20date%20would%20be%20" + dayMonth + ".%20Calculate%20your%20age–date%20at%20joshuafeldman.co.uk/age-date-converter/")
 
           })
 
