@@ -102,7 +102,7 @@
       data-size="large">
     Tweet</a> -->
     <button type="button" class="btn"><a href="#" class="fa fa-facebook"></a></button>
-    <button type="button" class="btn"><a href="https://twitter.com/intent/tweet?text=If%20my%20life%20were%20a%20calendar%20year,%20the%20date%20would%20be%2017%20May." class="fa fa-twitter"></a></button>
+    <button type="button" class="btn"><a id="twitter" class="fa fa-twitter"></a></button>
 </div>
 </div>
 
@@ -284,6 +284,8 @@
             .attr('width', lifeProgress * w)
             .attr('class', 'diagonal-stripe-1');
 
+            var dayMonth = scale(lifeProgress).getDate() + "%20" + months[scale(lifeProgress).getMonth()];
+
             var out = d3.select("#output")
               .html("Assuming a lifespan of " + "<strong>" + lifespan + " years" + "</strong>, " + "the date would be " + "<strong>" + scale(lifeProgress).getDate() + " " + months[scale(lifeProgress).getMonth()] + "</strong>" + " if your life were a calendar year.")
               .style("opacity", 0)
@@ -309,6 +311,9 @@
             .transition()
             .duration(1000)
             .style("opacity", 1)
+
+            d3.select("twitter")
+              .attr("href", "https://twitter.com/intent/tweet?text=If%20my%20life%20were%20a%20calendar%20year,%20the%20date%20would%20be%20" + dayMonth + ".")
 
           })
 
