@@ -3,6 +3,10 @@
   position: block-inline !important;
 }
 
+input {
+  /* text-align: center; */
+}
+
 .fa {
   text-decoration: none !important;
   font-size: 30px !important;
