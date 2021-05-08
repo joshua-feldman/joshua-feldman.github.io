@@ -58,7 +58,7 @@
 
       <!-- Date of birth -->
       <label class="inputLabel">Date of birth</label>
-      <input id="birthDate" type="date" class="form-control">
+      <input id="birthDate" type="date" class="form-control" required="required">
 
       </div>
 
@@ -250,7 +250,7 @@
 
             var lifeProgress = calculateLifeProgress();
             console.log(lifeProgress);
-            if (lifeProgress > 1) {
+            if (lifeProgress > 1 | d3.select("#birthDate").property("value") = '') {
 
               console.log("fail");
               document.getElementById("submitButton").disabled = true;
