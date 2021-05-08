@@ -128,6 +128,13 @@
 
         <script type="text/javascript">
 
+        if (d3.select("#birthDate").property("value") == '') {
+
+          console.log("fail");
+          document.getElementById("submitButton").disabled = true;
+
+        }
+
           var parseTime = d3.timeParse("%Y-%m-%d");
 
           var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -250,7 +257,7 @@
 
             var lifeProgress = calculateLifeProgress();
             console.log(lifeProgress);
-            if (lifeProgress > 1 | d3.select("#birthDate").property("value") == '') {
+            if (lifeProgress > 1 || d3.select("#birthDate").property("value") == '') {
 
               console.log("fail");
               document.getElementById("submitButton").disabled = true;
@@ -264,7 +271,7 @@
           d3.select("#lifespan").on("change", function() {
 
             var lifeProgress = calculateLifeProgress();
-            if (lifeProgress > 1) {
+            if (lifeProgress > 1 || d3.select("#birthDate").property("value") == '') {
 
               console.log("fail");
               document.getElementById("submitButton").disabled = true;
