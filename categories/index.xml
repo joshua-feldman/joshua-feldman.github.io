@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Joshua Feldman</title>
-    <link>http://localhost:63252/categories/</link>
+    <link>https://joshuafeldman.co.uk/categories/</link>
     <description>Recent content in Categories on Joshua Feldman</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 27 Oct 2025 17:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:63252/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joshuafeldman.co.uk/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projects</title>
-      <link>http://localhost:63252/categories/projects/</link>
+      <link>https://joshuafeldman.co.uk/categories/projects/</link>
       <pubDate>Mon, 27 Oct 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/categories/projects/</guid>
+      <guid>https://joshuafeldman.co.uk/categories/projects/</guid>
       <description></description>
     </item>
     <item>
       <title>R</title>
-      <link>http://localhost:63252/categories/r/</link>
+      <link>https://joshuafeldman.co.uk/categories/r/</link>
       <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/categories/r/</guid>
+      <guid>https://joshuafeldman.co.uk/categories/r/</guid>
       <description></description>
     </item>
   </channel>

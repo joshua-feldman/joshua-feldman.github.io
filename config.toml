@@ -1,4 +1,4 @@
-baseurl = "https://joshua-feldman.github.io/"
+baseurl = "https://joshuafeldman.co.uk/"
 theme = "cocoa-eh-hugo-theme"
 builddrafts = true
 canonifyurls = true

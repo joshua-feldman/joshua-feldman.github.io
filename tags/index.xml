@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joshua Feldman</title>
-    <link>http://localhost:63252/tags/</link>
+    <link>https://joshuafeldman.co.uk/tags/</link>
     <description>Recent content in Tags on Joshua Feldman</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 27 Oct 2025 17:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:63252/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://joshuafeldman.co.uk/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shakespeare</title>
-      <link>http://localhost:63252/tags/shakespeare/</link>
+      <link>https://joshuafeldman.co.uk/tags/shakespeare/</link>
       <pubDate>Mon, 27 Oct 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/shakespeare/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/shakespeare/</guid>
       <description></description>
     </item>
     <item>
       <title>Sonnets</title>
-      <link>http://localhost:63252/tags/sonnets/</link>
+      <link>https://joshuafeldman.co.uk/tags/sonnets/</link>
       <pubDate>Mon, 27 Oct 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/sonnets/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/sonnets/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>http://localhost:63252/tags/web/</link>
+      <link>https://joshuafeldman.co.uk/tags/web/</link>
       <pubDate>Mon, 27 Oct 2025 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/web/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Resident Advisor</title>
-      <link>http://localhost:63252/tags/resident-advisor/</link>
+      <link>https://joshuafeldman.co.uk/tags/resident-advisor/</link>
       <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/resident-advisor/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/resident-advisor/</guid>
       <description></description>
     </item>
     <item>
       <title>Rstats</title>
-      <link>http://localhost:63252/tags/rstats/</link>
+      <link>https://joshuafeldman.co.uk/tags/rstats/</link>
       <pubDate>Sat, 27 Jul 2019 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/rstats/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/rstats/</guid>
       <description></description>
     </item>
     <item>
       <title>Beatles</title>
-      <link>http://localhost:63252/tags/beatles/</link>
+      <link>https://joshuafeldman.co.uk/tags/beatles/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/beatles/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/beatles/</guid>
       <description></description>
     </item>
     <item>
       <title>Clustering</title>
-      <link>http://localhost:63252/tags/clustering/</link>
+      <link>https://joshuafeldman.co.uk/tags/clustering/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
-      <guid>http://localhost:63252/tags/clustering/</guid>
+      <guid>https://joshuafeldman.co.uk/tags/clustering/</guid>
       <description></description>
     </item>
   </channel>
