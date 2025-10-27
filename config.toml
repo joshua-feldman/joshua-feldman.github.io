@@ -44,6 +44,9 @@ posts_navigation = true
 # githubRepo = "githubUsername/repositoryName/tree/master"
 small_banner_logo = false
 
+[params.analytics]
+gtag_id = "G-J5DD8B40F2"
+
 [params.colors]
 identifier = "#527fc1f"
 identifier_dark = "#1a3152"

@@ -1,52 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/blog/</loc>
+    <loc>https://joshuafeldman.co.uk/blog/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/categories/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/interactive/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/blog/introducing-sonnet-explorer/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/categories/projects/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/shakespeare/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/sonnets/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/web/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/blog/is-resident-advisor-biased-towards-ambient-music/</loc>
+    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/categories/r/</loc>
+    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/resident-advisor/</loc>
+    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/rstats/</loc>
+    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/beatles/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/clustering-beatles-songs/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/tags/clustering/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/blog/the-10-types-of-beatles-song/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/about/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/about/about/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/about/about/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/portfolio/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/portfolio/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/portfolio/portfolio/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/portfolio/portfolio/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/home/</loc>
+  </url><url>
+    <loc>https://joshuafeldman.co.uk/license/</loc>
   </url>
-  
-  <url>
-    <loc>/home/</loc>
-  </url>
-  
-  <url>
-    <loc>/license/</loc>
-  </url>
-  
 </urlset>

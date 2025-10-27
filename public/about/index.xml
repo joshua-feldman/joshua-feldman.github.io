@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Joshua Feldman</title>
-    <link>/about/</link>
+    <link>https://joshuafeldman.co.uk/about/</link>
     <description>Recent content in About on Joshua Feldman</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://joshuafeldman.co.uk/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>/about/about/</link>
+      <link>https://joshuafeldman.co.uk/about/about/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/about/about/</guid>
-      <description>My name is Joshua Feldman and I am a Data Scientist at the BBC.
-My background is unconventional. My first degree was in English literature and I began my career working as a copywriter and freelance journalist. However, I also harboured a strong interest in statistics and social science, so decided to retrain with a master&amp;rsquo;s degree in quantitative research methodology from the London School of Economics.
-I have written for a variety of publications, including The Guardian and The Times, and published two projects on DataCamp.</description>
+      <guid>https://joshuafeldman.co.uk/about/about/</guid>
+      <description>&lt;p&gt;My name is Joshua Feldman and I am a Data Scientist at Facebook.&lt;/p&gt;&#xA;&lt;p&gt;My background is unconventional. My first degree was in English literature and I began my career working as a copywriter and freelance journalist. However, I also had a strong interest in statistics and social science, so decided to retrain with a master&amp;rsquo;s degree in quantitative research methodology from the London School of Economics.&lt;/p&gt;&#xA;&lt;p&gt;I have written for a variety of publications, including &lt;a href=&#34;https://www.theguardian.com/profile/joshua-feldman&#34;&gt;The Guardian&lt;/a&gt; and The Times, and published two projects on &lt;a href=&#34;https://www.datacamp.com/instructors/joshuafeldman&#34;&gt;DataCamp&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
