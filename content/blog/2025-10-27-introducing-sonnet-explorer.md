@@ -3,7 +3,7 @@ title: "Introducing Sonnet Explorer"
 author: "Joshua Feldman"
 date: 2025-10-27T17:00:00-00:00
 categories: ["Projects"]
-tags: ["sonnets", "shakespeare", "web"]
+tags: ["sonnets", "shakespeare", "web", "interactive"]
 ---
 
 <!-- Google tag (gtag.js) -->
