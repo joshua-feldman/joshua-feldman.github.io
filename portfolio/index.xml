@@ -1,27 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portfolio on Joshua Feldman</title>
-    <link>https://joshua-feldman.github.io/portfolio/</link>
+    <link>http://localhost:63252/portfolio/</link>
     <description>Recent content in Portfolio on Joshua Feldman</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://joshua-feldman.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:63252/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Portfolio</title>
-      <link>https://joshua-feldman.github.io/portfolio/portfolio/</link>
+      <link>http://localhost:63252/portfolio/portfolio/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://joshua-feldman.github.io/portfolio/portfolio/</guid>
-      <description>TEACHING What Makes a Pokémon Legendary? Use tree-based machine learning methods to identify the characteristics of legendary Pokémon.
-Gender Bias in Graduate Admissions Analyze admissions data from UC Berkeley and find out if the university was biased against women.
-WRITING Postgrad study: a new perspective from the top of the hill The Guardian, 6 Jan 2017
-Reconceptualising (systematic) Ideology in the Wake of Political Psychology George Walford International Essay Prize, 9 Jul 2016</description>
+      <guid>http://localhost:63252/portfolio/portfolio/</guid>
+      <description>&lt;h3 id=&#34;teaching&#34;&gt;TEACHING&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.datacamp.com/projects/712&#34;&gt;What Makes a Pokémon Legendary?&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Use tree-based machine learning methods to identify the characteristics of legendary Pokémon.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.datacamp.com/projects/567&#34;&gt;Gender Bias in Graduate Admissions&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Analyze admissions data from UC Berkeley and find out if the university was biased against women.&lt;/p&gt;&#xA;&lt;h3 id=&#34;writing&#34;&gt;WRITING&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.theguardian.com/education/2017/jan/06/postgrad-study-a-new-perspective-from-the-top-of-the-hill&#34;&gt;Postgrad study: a new perspective from the top of the hill&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;em&gt;The Guardian&lt;/em&gt;, 6 Jan 2017&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://gwiep.net/wp/?p=4347&#34;&gt;Reconceptualising (systematic) Ideology in the Wake of Political Psychology&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;em&gt;George Walford International Essay Prize&lt;/em&gt;, 9 Jul 2016&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

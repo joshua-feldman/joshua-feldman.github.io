@@ -1,24 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>clustering on Joshua Feldman</title>
-    <link>https://joshua-feldman.github.io/tags/clustering/</link>
-    <description>Recent content in clustering on Joshua Feldman</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Clustering on Joshua Feldman</title>
+    <link>http://localhost:63252/tags/clustering/</link>
+    <description>Recent content in Clustering on Joshua Feldman</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 16 Jun 2019 17:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://joshua-feldman.github.io/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:63252/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The 10 types of Beatles song</title>
-      <link>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</link>
+      <link>http://localhost:63252/blog/the-10-types-of-beatles-song/</link>
       <pubDate>Sun, 16 Jun 2019 17:00:00 +0000</pubDate>
-      
-      <guid>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</guid>
-      <description>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag(&#39;js&#39;, new Date()); gtag(&#39;config&#39;, &#39;UA-173614398-1&#39;);  With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock.</description>
+      <guid>http://localhost:63252/blog/the-10-types-of-beatles-song/</guid>
+      <description>&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;&#xA;&lt;script async src=&#34;https://www.googletagmanager.com/gtag/js?id=UA-173614398-1&#34;&gt;&lt;/script&gt;&#xA;&lt;script&gt;&#xA;  window.dataLayer = window.dataLayer || [];&#xA;  function gtag(){dataLayer.push(arguments);}&#xA;  gtag(&#39;js&#39;, new Date());&#xA;&#xA;  gtag(&#39;config&#39;, &#39;UA-173614398-1&#39;);&#xA;&lt;/script&gt;&#xA;&#xA;&lt;p&gt;&lt;meta name=&#34;twitter:image&#34; content=&#34;https://www.rollingstone.com/wp-content/uploads/2018/06/beatles-in-india-9c736b8e-0cd0-4c55-9535-35db0341564d.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;With 13 studio albums and a career that spanned more than a decade, The Beatles are not only known for being the best-selling band in history but also for their stylistic range. Although the Fab Four started off as a straightforward - albeit wildly successful - rock and roll outfit, they later broadened their output to include pop ballads, psychedelia and Indian raga rock. Their self-titled LP, released in 1968 and popularly known as ‘The White Album’, represented the height of their eclecticism, as it spanned hard rock (‘Back in the USSR’), ska (‘Ob-La-Di, Ob-La-Da’), country (‘Rocky Racoon’) and experimental (‘Revolution 9’).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,99 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://joshua-feldman.github.io/blog/</loc>
+    <loc>http://localhost:63252/blog/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/categories/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/blog/introducing-sonnet-explorer/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/categories/projects/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/tags/shakespeare/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/tags/sonnets/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/tags/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/tags/web/</loc>
+    <lastmod>2025-10-27T17:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/blog/is-resident-advisor-biased-towards-ambient-music/</loc>
     <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/categories/</loc>
+  </url><url>
+    <loc>http://localhost:63252/categories/r/</loc>
     <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/blog/is-resident-advisor-biased-towards-ambient-music/</loc>
+  </url><url>
+    <loc>http://localhost:63252/tags/resident-advisor/</loc>
     <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/</loc>
+  </url><url>
+    <loc>http://localhost:63252/tags/rstats/</loc>
     <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/categories/r/</loc>
-    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/tags/</loc>
-    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/tags/resident-advisor/</loc>
-    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/tags/rstats/</loc>
-    <lastmod>2019-07-27T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/blog/the-10-types-of-beatles-song/</loc>
+  </url><url>
+    <loc>http://localhost:63252/tags/beatles/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/tags/beatles/</loc>
+  </url><url>
+    <loc>http://localhost:63252/tags/clustering/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/tags/clustering/</loc>
+  </url><url>
+    <loc>http://localhost:63252/blog/the-10-types-of-beatles-song/</loc>
     <lastmod>2019-06-16T17:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/about/</loc>
+  </url><url>
+    <loc>http://localhost:63252/about/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/about/about/</loc>
+  </url><url>
+    <loc>http://localhost:63252/about/about/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/portfolio/</loc>
+  </url><url>
+    <loc>http://localhost:63252/portfolio/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/portfolio/portfolio/</loc>
+  </url><url>
+    <loc>http://localhost:63252/portfolio/portfolio/</loc>
     <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:63252/home/</loc>
+  </url><url>
+    <loc>http://localhost:63252/license/</loc>
   </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/home/</loc>
-  </url>
-  
-  <url>
-    <loc>https://joshua-feldman.github.io/license/</loc>
-  </url>
-  
 </urlset>
