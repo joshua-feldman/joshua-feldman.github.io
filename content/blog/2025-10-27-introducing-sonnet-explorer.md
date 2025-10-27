@@ -6,6 +6,16 @@ categories: ["Projects"]
 tags: ["sonnets", "shakespeare", "web"]
 ---
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173614398-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173614398-1');
+</script>
+
 I'm writing my first blog post in six years (!) to introduce **[Sonnet Explorer](https://sonnetexplorer.com/)** – an interactive guide to all 154 of Shakespeare’s sonnets, designed to make them more accessible to the casual reader.
 
 Right now you can:
