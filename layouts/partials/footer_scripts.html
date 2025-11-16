@@ -41,18 +41,6 @@ fathom('trackPageview');
 <!-- / Fathom -->
 {{ end }}
 
-{{ with .Site.Params.analytics.gtag_id }}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', '{{ . }}');
-</script>
-{{ end }}
-
 <script>
   window.onload = function() {
     {{ if .Site.Params.highlightjs }}
